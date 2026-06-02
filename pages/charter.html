@@ -5,125 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charte & Règlements - SLACH</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body>
     <!-- HEADER & NAVIGATION -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
-                <img src="LOGO1.jpeg" alt="Logo SLACH" class="logo">
+                <img src="../assets/images/LOGO1.jpeg" alt="Logo SLACH" class="logo">
             </div>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
+                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
-                <a href="index.html" class="nav-link">Accueil</a>
-                <a href="genese.html" class="nav-link">La Genèse</a>
-                <a href="charter.html" class="nav-link active">Charte & Règlements</a>
-                <a href="vie-scolaire.html" class="nav-link">Vie Scolaire</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="../index.html" class="nav-link" data-fr="Accueil" data-en="Home">Accueil</a>
+                <a href="genese.html" class="nav-link" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                <a href="charter.html" class="nav-link active" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                <a href="vie-scolaire.html" class="nav-link" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                <a href="contact.html" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button">Nous Rejoindre</button>
+            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
     <!-- PAGE TITLE -->
     <section class="page-title-section">
         <div class="container">
-            <h1>Textes Constitutifs & Règlements</h1>
-            <p>Les principes, valeurs et règles qui fondent SLACH</p>
+            <h1 class="animate-fadeInUp" data-fr="Textes Constitutifs & Règlements" data-en="Constituent Texts & Rules">Textes Constitutifs & Règlements</h1>
+            <p class="animate-fadeInUp" data-fr="Les principes, valeurs et règles qui fondent SLACH" data-en="The principles, values and rules that found SLACH">Les principes, valeurs et règles qui fondent SLACH</p>
         </div>
     </section>
 
     <div class="charter-container">
         <!-- SIDE NAVIGATION -->
-        <aside class="side-navigation">
+        <aside class="side-navigation scroll-reveal">
             <nav class="charter-nav">
-                <a href="#identite" class="nav-item">Identité</a>
-                <a href="#values" class="nav-item">Valeurs Fondamentales</a>
-                <a href="#droits" class="nav-item">Droits & Devoirs</a>
-                <a href="#konbit" class="nav-item">Konbit Scolaire</a>
-                <a href="#pedagogie" class="nav-item">Organisation Pédagogique</a>
-                <a href="#horaires" class="nav-item">Trois Horaires</a>
-                <a href="#evaluation" class="nav-item">Évaluation & Discipline</a>
-                <a href="#download" class="nav-item">Télécharger</a>
+                <a href="#identite" class="nav-item" data-fr="Identité" data-en="Identity">Identité</a>
+                <a href="#values" class="nav-item" data-fr="Valeurs Fondamentales" data-en="Core Values">Valeurs Fondamentales</a>
+                <a href="#droits" class="nav-item" data-fr="Droits & Devoirs" data-en="Rights & Duties">Droits & Devoirs</a>
+                <a href="#konbit" class="nav-item" data-fr="Konbit Scolaire" data-en="School Konbit">Konbit Scolaire</a>
+                <a href="#pedagogie" class="nav-item" data-fr="Organisation Pédagogique" data-en="Pedagogical Organization">Organisation Pédagogique</a>
+                <a href="#horaires" class="nav-item" data-fr="Trois Horaires" data-en="Three Schedules">Trois Horaires</a>
+                <a href="#evaluation" class="nav-item" data-fr="Évaluation & Discipline" data-en="Evaluation & Discipline">Évaluation & Discipline</a>
+                <a href="#download" class="nav-item" data-fr="Télécharger" data-en="Download">Télécharger</a>
             </nav>
         </aside>
 
         <!-- MAIN CONTENT -->
         <main class="charter-content">
             <!-- SECTION: IDENTITÉ -->
-            <section id="identite" class="charter-section">
-                <h2>Charte des Élèves - Identité</h2>
-                <p>
+            <section id="identite" class="charter-section scroll-reveal">
+                <h2 data-fr="Charte des Élèves - Identité" data-en="Student Charter - Identity">Charte des Élèves - Identité</h2>
+                <p data-fr="Semi-Lycée Anacaona du Cap-Haitien est une institution d'éducation inclusive fondée en 1996 sur les principes de solidarité, d'égalité et de justice sociale. Nous accueillons tous les enfants, indépendamment de leur situation économique, sociale, statut de papiers ou origine familiale." data-en="Semi-Lycée Anacaona du Cap-Haitien is an inclusive education institution founded in 1996 on the principles of solidarity, equality and social justice. We welcome all children, regardless of their economic, social situation, paper status or family origin.">
                     Semi-Lycée Anacaona du Cap-Haitien est une institution d'éducation inclusive fondée en 1996 sur les principes de solidarité, 
                     d'égalité et de justice sociale. Nous accueillons tous les enfants, indépendamment de leur situation économique, sociale, 
                     statut de papiers ou origine familiale.
                 </p>
-                <p>
+                <p data-fr="Notre établissement porte le nom d'Anacaona, cacique taïno symbole de résistance, de liberté et de dignité. Chaque élève qui franchit nos portes devient un héritier de cette tradition d'excellence et de courage." data-en="Our institution bears the name of Anacaona, Taino cacique symbol of resistance, freedom and dignity. Every student who crosses our doors becomes an heir of this tradition of excellence and courage.">
                     Notre établissement porte le nom d'<strong>Anacaona</strong>, cacique taïno symbole de résistance, de liberté et de dignité. 
                     Chaque élève qui franchit nos portes devient un héritier de cette tradition d'excellence et de courage.
                 </p>
                 <div class="highlight-box">
-                    <p><strong>Devise Officielle :</strong> "Travail, Patrie, Dieu"</p>
-                    <p><strong>Fondation :</strong> 1996</p>
-                    <p><strong>Localisation :</strong> Cap-Haitien, Haïti</p>
+                    <p data-fr="Devise Officielle : 'Travail, Patrie, Dieu'" data-en="Official Motto: 'Work, Country, God'"><strong>Devise Officielle :</strong> "Travail, Patrie, Dieu"</p>
+                    <p data-fr="Fondation : 1996" data-en="Foundation: 1996"><strong>Fondation :</strong> 1996</p>
+                    <p data-fr="Localisation : Cap-Haitien, Haïti" data-en="Location: Cap-Haitien, Haiti"><strong>Localisation :</strong> Cap-Haitien, Haïti</p>
                 </div>
             </section>
 
             <!-- SECTION: HISTOIRE & MÉMOIRE -->
-            <section id="history-charter" class="charter-section">
-                <h2>Histoire & Mémoire</h2>
-                <p>
+            <section id="history-charter" class="charter-section scroll-reveal">
+                <h2 data-fr="Histoire & Mémoire" data-en="History & Memory">Histoire & Mémoire</h2>
+                <p data-fr="SLACH a été créée en 1996 en réponse à l'absence d'éducation pour les enfants les plus vulnérables du Cap-Haitien. Depuis plus d'un quart de siècle, nous avons accueilli des milliers d'enfants orphelins, sans documents et des familles démunies, leur offrant une chance égale à l'éducation." data-en="SLACH was created in 1996 in response to the lack of education for the most vulnerable children of Cap-Haitien. For more than a quarter of a century, we have welcomed thousands of orphaned children, without documents and destitute families, offering them an equal chance at education.">
                     SLACH a été créée en 1996 en réponse à l'absence d'éducation pour les enfants les plus vulnérables du Cap-Haitien. 
                     Depuis plus d'un quart de siècle, nous avons accueilli des milliers d'enfants orphelins, sans documents et des familles 
                     démunies, leur offrant une chance égale à l'éducation.
                 </p>
-                <p>
+                <p data-fr="Notre histoire est celle du courage, du sacrifice et de l'innovation. Nous ne sommes pas une école conventionnelle. Nous sommes un mouvement pour la justice éducative et la transformation sociale." data-en="Our history is one of courage, sacrifice and innovation. We are not a conventional school. We are a movement for educational justice and social transformation.">
                     Notre histoire est celle du courage, du sacrifice et de l'innovation. Nous ne sommes pas une école conventionnelle. 
                     Nous sommes un mouvement pour la justice éducative et la transformation sociale.
                 </p>
             </section>
 
             <!-- SECTION: VALEURS FONDAMENTALES -->
-            <section id="values" class="charter-section">
-                <h2>Valeurs Fondamentales</h2>
+            <section id="values" class="charter-section scroll-reveal">
+                <h2 data-fr="Valeurs Fondamentales" data-en="Core Values">Valeurs Fondamentales</h2>
                 <div class="values-grid">
                     <div class="value-item">
-                        <h3>Dignité</h3>
-                        <p>
+                        <h3 data-fr="Dignité" data-en="Dignity">Dignité</h3>
+                        <p data-fr="Chaque élève est traité avec respect absolu. Nous reconnaissons la valeur intrinsèque de chaque personne, indépendamment de sa condition économique ou sociale." data-en="Every student is treated with absolute respect. We recognize the intrinsic value of every person, regardless of their economic or social condition.">
                             Chaque élève est traité avec respect absolu. Nous reconnaissons la valeur intrinsèque de chaque personne, 
                             indépendamment de sa condition économique ou sociale.
                         </p>
                     </div>
                     <div class="value-item">
-                        <h3>Solidarité</h3>
-                        <p>
+                        <h3 data-fr="Solidarité" data-en="Solidarity">Solidarité</h3>
+                        <p data-fr="Nous travaillons ensemble, élèves, enseignants et familles, comme une communauté unie. L'entraide est l'essence même de notre éducation." data-en="We work together, students, teachers and families, as a united community. Mutual aid is the very essence of our education.">
                             Nous travaillons ensemble, élèves, enseignants et familles, comme une communauté unie. L'entraide est 
                             l'essence même de notre éducation.
                         </p>
                     </div>
                     <div class="value-item">
-                        <h3>Exigence</h3>
-                        <p>
+                        <h3 data-fr="Exigence" data-en="Excellence">Exigence</h3>
+                        <p data-fr="Nous exigeons l'excellence académique et éthique. Pas de compromis sur la qualité. Chaque élève doit donner le meilleur de lui-même." data-en="We demand academic and ethical excellence. No compromise on quality. Every student must give their best.">
                             Nous exigeons l'excellence académique et éthique. Pas de compromis sur la qualité. Chaque élève doit 
                             donner le meilleur de lui-même.
                         </p>
                     </div>
                     <div class="value-item">
-                        <h3>Loyauté</h3>
-                        <p>
+                        <h3 data-fr="Loyauté" data-en="Loyalty">Loyauté</h3>
+                        <p data-fr="Nous sommes fidèles à nos engagements envers nos élèves et nos familles. SLACH est un refuge stable et fiable." data-en="We are faithful to our commitments to our students and families. SLACH is a stable and reliable refuge.">
                             Nous sommes fidèles à nos engagements envers nos élèves et nos familles. SLACH est un refuge stable 
                             et fiable.
                         </p>
                     </div>
                     <div class="value-item">
-                        <h3>Inclusion</h3>
-                        <p>
+                        <h3 data-fr="Inclusion" data-en="Inclusion">Inclusion</h3>
+                        <p data-fr="Aucun enfant ne sera rejeté. Nous adaptons notre pédagogie pour que chacun trouve sa place et prospère." data-en="No child will be rejected. We adapt our pedagogy so that everyone finds their place and thrives.">
                             Aucun enfant ne sera rejeté. Nous adaptons notre pédagogie pour que chacun trouve sa place et prospère.
                         </p>
                     </div>
                     <div class="value-item">
-                        <h3>Gratitude</h3>
-                        <p>
+                        <h3 data-fr="Gratitude" data-en="Gratitude">Gratitude</h3>
+                        <p data-fr="Nous cultivons la reconnaissance envers nos bénéfacteurs, notre héritage culturel et l'opportunité d'apprendre." data-en="We cultivate gratitude towards our benefactors, our cultural heritage and the opportunity to learn.">
                             Nous cultivons la reconnaissance envers nos bénéfacteurs, notre héritage culturel et l'opportunité 
                             d'apprendre.
                         </p>
@@ -132,138 +145,144 @@
             </section>
 
             <!-- SECTION: DROITS & DEVOIRS -->
-            <section id="droits" class="charter-section">
-                <h2>Droits & Devoirs des Élèves</h2>
-                <h3>Droits des Élèves</h3>
+            <section id="droits" class="charter-section scroll-reveal">
+                <h2 data-fr="Droits & Devoirs des Élèves" data-en="Student Rights & Duties">Droits & Devoirs des Élèves</h2>
+                <h3 data-fr="Droits des Élèves" data-en="Student Rights">Droits des Élèves</h3>
                 <ul class="charter-list">
-                    <li>Droit à une éducation de qualité, inclusive et gratuite</li>
-                    <li>Droit au respect et à la dignité en toutes circonstances</li>
-                    <li>Droit à l'accès aux ressources éducatives et technologiques</li>
-                    <li>Droit de participer à la vie scolaire et aux décisions qui affectent l'institution</li>
-                    <li>Droit à la sécurité physique et émotionnelle</li>
-                    <li>Droit à l'expression et à la liberté de pensée dans le respect des valeurs de l'école</li>
+                    <li data-fr="Droit à une éducation de qualité, inclusive et gratuite" data-en="Right to a quality, inclusive and free education">Droit à une éducation de qualité, inclusive et gratuite</li>
+                    <li data-fr="Droit au respect et à la dignité en toutes circonstances" data-en="Right to respect and dignity in all circumstances">Droit au respect et à la dignité en toutes circonstances</li>
+                    <li data-fr="Droit à l'accès aux ressources éducatives et technologiques" data-en="Right to access educational and technological resources">Droit à l'accès aux ressources éducatives et technologiques</li>
+                    <li data-fr="Droit de participer à la vie scolaire et aux décisions qui affectent l'institution" data-en="Right to participate in school life and decisions that affect the institution">Droit de participer à la vie scolaire et aux décisions qui affectent l'institution</li>
+                    <li data-fr="Droit à la sécurité physique et émotionnelle" data-en="Right to physical and emotional safety">Droit à la sécurité physique et émotionnelle</li>
+                    <li data-fr="Droit à l'expression et à la liberté de pensée dans le respect des valeurs de l'école" data-en="Right to expression and freedom of thought while respecting the school's values">Droit à l'expression et à la liberté de pensée dans le respect des valeurs de l'école</li>
                 </ul>
 
-                <h3 style="margin-top: 2rem;">Devoirs des Élèves</h3>
+                <h3 style="margin-top: 2rem;" data-fr="Devoirs des Élèves" data-en="Student Duties">Devoirs des Élèves</h3>
                 <ul class="charter-list">
-                    <li>Devoir d'assister régulièrement aux cours et d'être ponctuel</li>
-                    <li>Devoir de respecter les autres élèves, les enseignants et le personnel</li>
-                    <li>Devoir de maintenir la propreté et l'ordre à l'école</li>
-                    <li>Devoir de faire preuve d'honnêteté académique</li>
-                    <li>Devoir de participer activement à la vie scolaire et communautaire</li>
-                    <li>Devoir d'appliquer les règles de l'école avec discipline et respect</li>
+                    <li data-fr="Devoir d'assister régulièrement aux cours et d'être ponctuel" data-en="Duty to attend classes regularly and be punctual">Devoir d'assister régulièrement aux cours et d'être ponctuel</li>
+                    <li data-fr="Devoir de respecter les autres élèves, les enseignants et le personnel" data-en="Duty to respect other students, teachers and staff">Devoir de respecter les autres élèves, les enseignants et le personnel</li>
+                    <li data-fr="Devoir de maintenir la propreté et l'ordre à l'école" data-en="Duty to maintain cleanliness and order at school">Devoir de maintenir la propreté et l'ordre à l'école</li>
+                    <li data-fr="Devoir de faire preuve d'honnêteté académique" data-en="Duty to demonstrate academic honesty">Devoir de faire preuve d'honnêteté académique</li>
+                    <li data-fr="Devoir de participer activement à la vie scolaire et communautaire" data-en="Duty to actively participate in school and community life">Devoir de participer activement à la vie scolaire et communautaire</li>
+                    <li data-fr="Devoir d'appliquer les règles de l'école avec discipline et respect" data-en="Duty to apply school rules with discipline and respect">Devoir d'appliquer les règles de l'école avec discipline et respect</li>
                 </ul>
             </section>
 
             <!-- SECTION: KONBIT SCOLAIRE -->
-            <section id="konbit" class="charter-section">
-                <h2>Konbit Scolaire</h2>
-                <p>
+            <section id="konbit" class="charter-section scroll-reveal">
+                <h2 data-fr="Konbit Scolaire" data-en="School Konbit">Konbit Scolaire</h2>
+                <p data-fr="Le mot « Konbit » est une tradition haïtienne d'entraide communautaire. Au cœur de SLACH, le Konbit Scolaire représente notre engagement collectif envers le succès de chaque élève." data-en="The word « Konbit » is a Haitian tradition of community mutual aid. At the heart of SLACH, the School Konbit represents our collective commitment to the success of every student.">
                     Le mot « Konbit » est une tradition haïtienne d'entraide communautaire. Au cœur de SLACH, le Konbit Scolaire 
                     représente notre engagement collectif envers le succès de chaque élève.
                 </p>
-                <p>
+                <p data-fr="Le Konbit Scolaire signifie que :" data-en="The School Konbit means that:">
                     Le Konbit Scolaire signifie que :
                 </p>
                 <ul class="charter-list">
-                    <li>Les élèves s'entraident dans leurs études</li>
-                    <li>Les enseignants se soutiennent mutuellement pour offrir la meilleure pédagogie</li>
-                    <li>Les familles sont impliquées activement dans le processus éducatif</li>
-                    <li>L'administration soutient chaque acteur de l'institution</li>
-                    <li>Ensemble, nous construisons une communauté d'apprentissage forte et résiliente</li>
+                    <li data-fr="Les élèves s'entraident dans leurs études" data-en="Students help each other in their studies">Les élèves s'entraident dans leurs études</li>
+                    <li data-fr="Les enseignants se soutiennent mutuellement pour offrir la meilleure pédagogie" data-en="Teachers support each other to offer the best pedagogy">Les enseignants se soutiennent mutuellement pour offrir la meilleure pédagogie</li>
+                    <li data-fr="Les familles sont impliquées activement dans le processus éducatif" data-en="Families are actively involved in the educational process">Les familles sont impliquées activement dans le processus éducatif</li>
+                    <li data-fr="L'administration soutient chaque acteur de l'institution" data-en="The administration supports every actor of the institution">L'administration soutient chaque acteur de l'institution</li>
+                    <li data-fr="Ensemble, nous construisons une communauté d'apprentissage forte et résiliente" data-en="Together, we build a strong and resilient learning community">Ensemble, nous construisons une communauté d'apprentissage forte et résiliente</li>
                 </ul>
             </section>
 
             <!-- SECTION: ORGANISATION PÉDAGOGIQUE -->
-            <section id="pedagogie" class="charter-section">
-                <h2>Organisation Pédagogique</h2>
-                <p>
+            <section id="pedagogie" class="charter-section scroll-reveal">
+                <h2 data-fr="Organisation Pédagogique" data-en="Pedagogical Organization">Organisation Pédagogique</h2>
+                <p data-fr="SLACH suit une organisation pédagogique progressiste centrée sur l'apprentissage actif, critique et humaniste. Notre approche est basée sur les principes de :" data-en="SLACH follows a progressive pedagogical organization focused on active, critical and humanistic learning. Our approach is based on the principles of:">
                     SLACH suit une organisation pédagogique progressiste centrée sur l'apprentissage actif, critique et humaniste. 
                     Notre approche est basée sur les principes de :
                 </p>
                 <div class="pedagogical-principles">
                     <div class="principle">
-                        <h4>Apprentissage Actif</h4>
-                        <p>Les élèves ne sont pas des récepteurs passifs. Ils sont acteurs de leur apprentissage, questionnent, 
-                        expérimentent et construisent leurs connaissances.</p>
+                        <h4 data-fr="Apprentissage Actif" data-en="Active Learning">Apprentissage Actif</h4>
+                        <p data-fr="Les élèves ne sont pas des récepteurs passifs. Ils sont acteurs de leur apprentissage, questionnent, expérimentent et construisent leurs connaissances." data-en="Students are not passive recipients. They are actors in their learning, question, experiment and build their knowledge.">
+                            Les élèves ne sont pas des récepteurs passifs. Ils sont acteurs de leur apprentissage, questionnent, 
+                            expérimentent et construisent leurs connaissances.
+                        </p>
                     </div>
                     <div class="principle">
-                        <h4>Pensée Critique</h4>
-                        <p>Nous encourageons l'analyse, le questionnement et la réflexion plutôt que la mémorisation pure. 
-                        Les élèves apprennent à penser par eux-mêmes.</p>
+                        <h4 data-fr="Pensée Critique" data-en="Critical Thinking">Pensée Critique</h4>
+                        <p data-fr="Nous encourageons l'analyse, le questionnement et la réflexion plutôt que la mémorisation pure. Les élèves apprennent à penser par eux-mêmes." data-en="We encourage analysis, questioning and reflection rather than pure memorization. Students learn to think for themselves.">
+                            Nous encourageons l'analyse, le questionnement et la réflexion plutôt que la mémorisation pure. 
+                            Les élèves apprennent à penser par eux-mêmes.
+                        </p>
                     </div>
                     <div class="principle">
-                        <h4>Humanisme Éducatif</h4>
-                        <p>L'éducation n'est pas qu'académique. Nous formons des êtres humains complets, éthiques et conscients 
-                        de leur responsabilité sociale.</p>
+                        <h4 data-fr="Humanisme Éducatif" data-en="Educational Humanism">Humanisme Éducatif</h4>
+                        <p data-fr="L'éducation n'est pas qu'académique. Nous formons des êtres humains complets, éthiques et conscients de leur responsabilité sociale." data-en="Education is not just academic. We train complete human beings, ethical and aware of their social responsibility.">
+                            L'éducation n'est pas qu'académique. Nous formons des êtres humains complets, éthiques et conscients 
+                            de leur responsabilité sociale.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <!-- SECTION: TROIS HORAIRES -->
-            <section id="horaires" class="charter-section">
-                <h2>Les Trois Horaires de Scolarisation</h2>
-                <p>
+            <section id="horaires" class="charter-section scroll-reveal">
+                <h2 data-fr="Les Trois Horaires de Scolarisation" data-en="The Three School Schedules">Les Trois Horaires de Scolarisation</h2>
+                <p data-fr="L'une des caractéristiques distinctives de SLACH est notre système de trois horaires. Cela nous permet d'accueillir plus d'enfants et d'adapter l'éducation aux réalités de nos familles." data-en="One of the distinctive features of SLACH is our three-schedule system. This allows us to welcome more children and adapt education to the realities of our families.">
                     L'une des caractéristiques distinctives de SLACH est notre système de trois horaires. Cela nous permet 
                     d'accueillir plus d'enfants et d'adapter l'éducation aux réalités de nos familles.
                 </p>
                 <div class="schedules-grid">
                     <div class="schedule-item">
-                        <h3>Horaire Matin</h3>
+                        <h3 data-fr="Horaire Matin" data-en="Morning Schedule">Horaire Matin</h3>
                         <p><strong>7h00 - 12h30</strong></p>
-                        <p>Pour les élèves qui peuvent venir le matin. Classes complètes avec tous les sujets essentiels.</p>
+                        <p data-fr="Pour les élèves qui peuvent venir le matin. Classes complètes avec tous les sujets essentiels." data-en="For students who can come in the morning. Complete classes with all essential subjects.">Pour les élèves qui peuvent venir le matin. Classes complètes avec tous les sujets essentiels.</p>
                     </div>
                     <div class="schedule-item">
-                        <h3>Horaire Après-Midi</h3>
+                        <h3 data-fr="Horaire Après-Midi" data-en="Afternoon Schedule">Horaire Après-Midi</h3>
                         <p><strong>13h00 - 18h00</strong></p>
-                        <p>Pour ceux qui travaillent le matin ou ont d'autres responsabilités. Programme identique au matin.</p>
+                        <p data-fr="Pour ceux qui travaillent le matin ou ont d'autres responsabilités. Programme identique au matin." data-en="For those who work in the morning or have other responsibilities. Same program as in the morning.">Pour ceux qui travaillent le matin ou ont d'autres responsabilités. Programme identique au matin.</p>
                     </div>
                     <div class="schedule-item">
-                        <h3>Horaire Soir</h3>
+                        <h3 data-fr="Horaire Soir" data-en="Evening Schedule">Horaire Soir</h3>
                         <p><strong>18h30 - 21h30</strong></p>
-                        <p>Pour les travailleurs et les adultes. Formation continue et rattrapage académique.</p>
+                        <p data-fr="Pour les travailleurs et les adultes. Formation continue et rattrapage académique." data-en="For workers and adults. Continuing education and academic catch-up.">Pour les travailleurs et les adultes. Formation continue et rattrapage académique.</p>
                     </div>
                 </div>
             </section>
 
             <!-- SECTION: ÉVALUATION & DISCIPLINE -->
-            <section id="evaluation" class="charter-section">
-                <h2>Système d'Évaluation & Discipline Éducative</h2>
-                <h3>Évaluation</h3>
-                <p>
+            <section id="evaluation" class="charter-section scroll-reveal">
+                <h2 data-fr="Système d'Évaluation & Discipline Éducative" data-en="Evaluation System & Educational Discipline">Système d'Évaluation & Discipline Éducative</h2>
+                <h3 data-fr="Évaluation" data-en="Evaluation">Évaluation</h3>
+                <p data-fr="Notre système d'évaluation est formateur, non pas punitif. Nous évaluons :" data-en="Our evaluation system is formative, not punitive. We evaluate:">
                     Notre système d'évaluation est formateur, non pas punitif. Nous évaluons :
                 </p>
                 <ul class="charter-list">
-                    <li>La compréhension des concepts (pas la simple mémorisation)</li>
-                    <li>La capacité à appliquer les connaissances</li>
-                    <li>L'effort et la progression personnelle</li>
-                    <li>Les compétences sociales et éthiques</li>
-                    <li>L'engagement dans la communauté scolaire</li>
+                    <li data-fr="La compréhension des concepts (pas la simple mémorisation)" data-en="Understanding of concepts (not just memorization)">La compréhension des concepts (pas la simple mémorisation)</li>
+                    <li data-fr="La capacité à appliquer les connaissances" data-en="Ability to apply knowledge">La capacité à appliquer les connaissances</li>
+                    <li data-fr="L'effort et la progression personnelle" data-en="Effort and personal progress">L'effort et la progression personnelle</li>
+                    <li data-fr="Les compétences sociales et éthiques" data-en="Social and ethical skills">Les compétences sociales et éthiques</li>
+                    <li data-fr="L'engagement dans la communauté scolaire" data-en="Engagement in the school community">L'engagement dans la communauté scolaire</li>
                 </ul>
 
-                <h3 style="margin-top: 2rem;">Discipline Éducative</h3>
-                <p>
+                <h3 style="margin-top: 2rem;" data-fr="Discipline Éducative" data-en="Educational Discipline">Discipline Éducative</h3>
+                <p data-fr="SLACH rejette absolument les punitions humiliantes ou les châtiments corporels. Notre approche disciplinaire est éducative :" data-en="SLACH absolutely rejects humiliating punishments or corporal punishment. Our disciplinary approach is educational:">
                     SLACH rejette absolument les punitions humiliantes ou les châtiments corporels. 
                     Notre approche disciplinaire est éducative :
                 </p>
                 <ul class="charter-list">
-                    <li><strong>Dialogue :</strong> Nous parlons avec l'élève, pas à lui</li>
-                    <li><strong>Responsabilité :</strong> L'élève comprend les conséquences de ses actes</li>
-                    <li><strong>Réparation :</strong> Si quelque chose a été endommagé ou enfreint, on cherche à le réparer</li>
-                    <li><strong>Croissance :</strong> Chaque erreur est une opportunité d'apprendre et de grandir</li>
-                    <li><strong>Soutien :</strong> Nous aidons l'élève à devenir meilleur, pas à être puni</li>
+                    <li data-fr="Dialogue : Nous parlons avec l'élève, pas à lui" data-en="Dialogue: We talk with the student, not at them"><strong>Dialogue :</strong> Nous parlons avec l'élève, pas à lui</li>
+                    <li data-fr="Responsabilité : L'élève comprend les conséquences de ses actes" data-en="Responsibility: The student understands the consequences of their actions"><strong>Responsabilité :</strong> L'élève comprend les conséquences de ses actes</li>
+                    <li data-fr="Réparation : Si quelque chose a été endommagé ou enfreint, on cherche à le réparer" data-en="Reparation: If something has been damaged or broken, we seek to repair it"><strong>Réparation :</strong> Si quelque chose a été endommagé ou enfreint, on cherche à le réparer</li>
+                    <li data-fr="Croissance : Chaque erreur est une opportunité d'apprendre et de grandir" data-en="Growth: Every mistake is an opportunity to learn and grow"><strong>Croissance :</strong> Chaque erreur est une opportunité d'apprendre et de grandir</li>
+                    <li data-fr="Soutien : Nous aidons l'élève à devenir meilleur, pas à être puni" data-en="Support: We help the student to become better, not to be punished"><strong>Soutien :</strong> Nous aidons l'élève à devenir meilleur, pas à être puni</li>
                 </ul>
                 <div class="highlight-box" style="background-color: #f0f4f8; border-left: 4px solid #d32f2f;">
-                    <p style="color: #d32f2f; font-weight: bold;">
+                    <p style="color: #d32f2f; font-weight: bold;" data-fr="⚠️ Zéro tolérance pour l'humiliation : Aucun châtiment corporel, aucune insulte, aucune punition dégradante." data-en="⚠️ Zero tolerance for humiliation: No corporal punishment, no insults, no degrading punishment.">
                         ⚠️ Zéro tolérance pour l'humiliation : Aucun châtiment corporel, aucune insulte, aucune punition dégradante.
                     </p>
                 </div>
             </section>
 
             <!-- SECTION: DOWNLOAD -->
-            <section id="download" class="charter-section download-section">
-                <h2>Document Complet</h2>
-                <p>
+            <section id="download" class="charter-section download-section scroll-reveal">
+                <h2 data-fr="Document Complet" data-en="Complete Document">Document Complet</h2>
+                <p data-fr="Pour accéder à la version complète et détaillée de notre charte et de tous nos règlements, veuillez télécharger le document officiel ci-dessous :" data-en="To access the complete and detailed version of our charter and all our rules, please download the official document below:">
                     Pour accéder à la version complète et détaillée de notre charte et de tous nos règlements, 
                     veuillez télécharger le document officiel ci-dessous :
                 </p>
@@ -271,9 +290,9 @@
                     <div class="download-icon">📄</div>
                     <div class="download-info">
                         <h3>JARDINIER2.pdf</h3>
-                        <p>Document complet des textes constitutifs, charte des élèves et règlement intérieur de SLACH</p>
+                        <p data-fr="Document complet des textes constitutifs, charte des élèves et règlement intérieur de SLACH" data-en="Complete document of constituent texts, student charter and SLACH internal regulations">Document complet des textes constitutifs, charte des élèves et règlement intérieur de SLACH</p>
                     </div>
-                    <a href="JARDINIER2.pdf" class="button button-primary" download>
+                    <a href="../documents/JARDINIER2.pdf" class="button button-primary" download data-fr="Télécharger le PDF" data-en="Download the PDF">
                         Télécharger le PDF
                     </a>
                 </div>
@@ -286,22 +305,37 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Semi-Lycée Anacaona du Cap-Haitien</h4>
-                    <p>© 2024 SLACH. Tous droits réservés.</p>
+                    <h4 data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
+                    <p data-fr="Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996." data-en="Inclusive and quality education for all children of Cap-Haïtien since 1996.">Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996.</p>
+                    <p class="footer-motto" data-fr="\"Travail, Patrie, Dieu\" - Notre devise, notre engagement envers l'excellence et la nation." data-en="\"Work, Country, God\" - Our motto, our commitment to excellence and the nation.">"Travail, Patrie, Dieu" - Notre devise, notre engagement envers l'excellence et la nation.</p>
                 </div>
                 <div class="footer-section">
-                    <p class="footer-motto">
-                        <em>"Travail, Patrie, Dieu"</em> - Notre devise, notre engagement envers l'excellence et la nation.
-                    </p>
+                    <h4 data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+                    <a href="genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                    <a href="charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                    <a href="vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                    <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
                 </div>
                 <div class="footer-section">
-                    <a href="charter.html">Documents Officiels</a>
-                    <a href="contact.html">Nous Contacter</a>
+                    <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+                    <p data-fr="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti" data-en="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haiti">📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti</p>
+                    <p data-fr="📞 7866195621<br>+509 42629604<br>+509 43213720" data-en="📞 7866195621<br>+509 42629604<br>+509 43213720">📞 7866195621<br>+509 42629604<br>+509 43213720</p>
+                    <p>✉️ info@slach.ht</p>
                 </div>
+                <div class="footer-section">
+                    <h4 data-fr="Nos Valeurs" data-en="Our Values">Nos Valeurs</h4>
+                    <p data-fr="• Esprit Patriotique" data-en="• Patriotic Spirit">• Esprit Patriotique</p>
+                    <p data-fr="• Solidarité" data-en="• Solidarity">• Solidarité</p>
+                    <p data-fr="• Excellence Académique" data-en="• Academic Excellence">• Excellence Académique</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-fr="© 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona du Cap-Haitien. All rights reserved.">&copy; 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

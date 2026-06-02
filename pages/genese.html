@@ -5,48 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Genèse - SLACH</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body>
     <!-- HEADER & NAVIGATION -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
-                <img src="LOGO1.jpeg" alt="Logo SLACH" class="logo">
+                <img src="../assets/images/LOGO1.jpeg" alt="Logo SLACH" class="logo">
             </div>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
+                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
-                <a href="index.html" class="nav-link">Accueil</a>
-                <a href="genese.html" class="nav-link active">La Genèse</a>
-                <a href="charter.html" class="nav-link">Charte & Règlements</a>
-                <a href="vie-scolaire.html" class="nav-link">Vie Scolaire</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="../index.html" class="nav-link" data-fr="Accueil" data-en="Home">Accueil</a>
+                <a href="genese.html" class="nav-link active" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                <a href="charter.html" class="nav-link" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                <a href="vie-scolaire.html" class="nav-link" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                <a href="contact.html" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button">Nous Rejoindre</button>
+            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
     <!-- PAGE HEADER BANNER -->
-    <section class="page-header-banner">
-        <img src="WhatsApp Image 2025-11-25 at 1.15.02 PM.jpeg" alt="Bannière - Mur de l'école">
+    <section class="page-header-banner animate-fadeInUp">
+        <img src="../assets/images/WhatsApp Image 2025-11-25 at 1.15.02 PM.jpeg" alt="Bannière - Mur de l'école">
         <div class="banner-overlay">
-            <h1 class="banner-title">La Genèse & Notre Histoire</h1>
-            <p class="banner-subtitle">Un voyage de courage, de vision et de transformation</p>
+            <h1 class="banner-title" data-fr="La Genèse & Notre Histoire" data-en="The Genesis & Our History">La Genèse & Notre Histoire</h1>
+            <p class="banner-subtitle" data-fr="Un voyage de courage, de vision et de transformation" data-en="A journey of courage, vision and transformation">Un voyage de courage, de vision et de transformation</p>
         </div>
     </section>
 
     <main class="genese-main">
         <div class="container">
             <!-- LE TEMPS DES ÉPREUVES -->
-            <section class="history-section">
-                <h2 class="section-title">Le Temps des Épreuves</h2>
+            <section class="history-section scroll-reveal">
+                <h2 class="section-title" data-fr="Le Temps des Épreuves" data-en="The Time of Trials">Le Temps des Épreuves</h2>
                 <div class="content-box">
-                    <p>
+                    <p data-fr="En 1996, Cap-Haïtien était une ville battue par les pluies et la misère. Dans les rues boueuses, des enfants sans abri, orphelins et abandonnés pataugeaient dans une pauvreté abyssale. C'est dans cette atmosphère de désespoir que l'un de nos fondateurs, Arcelyn Pierre, a eu une vision transformatrice. Voyant ces enfants dans la boue, courant pieds nus, sans espoir, il a ressenti l'appel pressant de faire quelque chose." data-en="In 1996, Cap-Haïtien was a city battered by rain and poverty. In the muddy streets, homeless, orphaned and abandoned children waded in abject poverty. It was in this atmosphere of despair that one of our founders, Arcelyn Pierre, had a transformative vision. Seeing these children in the mud, running barefoot, without hope, he felt the urgent call to do something.">
                         En 1996, Cap-Haïtien était une ville battue par les pluies et la misère. Dans les rues boueuses, des enfants sans abri, 
                         orphelins et abandonnés pataugeaient dans une pauvreté abyssale. C'est dans cette atmosphère de désespoir que l'un de nos 
                         fondateurs, Arcelyn Pierre, a eu une vision transformatrice. Voyant ces enfants dans la boue, courant pieds nus, sans espoir, 
                         il a ressenti l'appel pressant de faire quelque chose.
                     </p>
-                    <p>
+                    <p data-fr="Cette époque était marquée par l'instabilité politique, l'absence de services publics, et l'indifférence de beaucoup envers les plus vulnérables. Les enfants des rues ne fréquentaient pas l'école. Ils n'avaient pas de familles pour les soutenir, pas de documents officiels, et certainement pas de perspectives d'avenir. Pourtant, Arcelyn a reconnu en eux le même potentiel, la même lumière que dans n'importe quel enfant privilégié." data-en="This era was marked by political instability, the absence of public services, and the indifference of many towards the most vulnerable. Street children did not attend school. They had no families to support them, no official documents, and certainly no future prospects. Yet Arcelyn recognized in them the same potential, the same light as in any privileged child.">
                         Cette époque était marquée par l'instabilité politique, l'absence de services publics, et l'indifférence de beaucoup envers 
                         les plus vulnérables. Les enfants des rues ne fréquentaient pas l'école. Ils n'avaient pas de familles pour les soutenir, 
                         pas de documents officiels, et certainement pas de perspectives d'avenir. Pourtant, Arcelyn a reconnu en eux le même potentiel, 
@@ -56,18 +74,18 @@
             </section>
 
             <!-- LA NAISSANCE D'UNE RÉSOLUTION -->
-            <section class="history-section">
-                <h2 class="section-title">La Naissance d'une Résolution</h2>
+            <section class="history-section scroll-reveal">
+                <h2 class="section-title" data-fr="La Naissance d'une Résolution" data-en="The Birth of a Resolution">La Naissance d'une Résolution</h2>
                 <div class="content-box">
-                    <p>
+                    <p data-fr="De cette vision a émergé une question radicale : « L'école peut-elle venir à l'enfant, plutôt que l'enfant à l'école ? »" data-en="From this vision emerged a radical question: « Can the school come to the child, rather than the child to the school? »">
                         De cette vision a émergé une question radicale : <strong>« L'école peut-elle venir à l'enfant, plutôt que l'enfant à l'école ? »</strong>
                     </p>
-                    <p>
+                    <p data-fr="C'est autour de cette interrogation révolutionnaire que Semi-Lycée Anacaona du Cap-Haitien a vu le jour. Nous n'avons pas attendu que les enfants orphelins, sans papiers et des familles les plus pauvres trouvent notre chemin. Nous sommes allés à leur rencontre. Nous avons décidé d'offrir une éducation gratuite, inclusive et de qualité à ceux que le système classique avait oubliés." data-en="It was around this revolutionary question that Semi-Lycée Anacaona du Cap-Haitien was born. We did not wait for orphaned children, without papers and from the poorest families to find our way. We went to meet them. We decided to offer free, inclusive and quality education to those the classic system had forgotten.">
                         C'est autour de cette interrogation révolutionnaire que Semi-Lycée Anacaona du Cap-Haitien a vu le jour. Nous n'avons pas attendu 
                         que les enfants orphelins, sans papiers et des familles les plus pauvres trouvent notre chemin. Nous sommes allés à leur rencontre. 
                         Nous avons décidé d'offrir une éducation gratuite, inclusive et de qualité à ceux que le système classique avait oubliés.
                     </p>
-                    <p>
+                    <p data-fr="Notre engagement fondamental est simple mais inébranlable : chaque enfant du Cap-Haitien mérite une chance. Pas par charité, mais par solidarité humaine. Pas par condescendance, mais par reconnaissance de sa dignité intrinsèque. Et surtout, pas par compassion passagère, mais par un engagement durable à transformer les vies grâce à l'éducation." data-en="Our fundamental commitment is simple but unshakable: every child of Cap-Haitien deserves a chance. Not out of charity, but out of human solidarity. Not out of condescension, but out of recognition of their inherent dignity. And above all, not out of passing compassion, but out of a lasting commitment to transform lives through education.">
                         Notre engagement fondamental est simple mais inébranlable : chaque enfant du Cap-Haitien mérite une chance. Pas par charité, 
                         mais par solidarité humaine. Pas par condescendance, mais par reconnaissance de sa dignité intrinsèque. Et surtout, pas par 
                         compassion passagère, mais par un engagement durable à transformer les vies grâce à l'éducation.
@@ -76,23 +94,23 @@
             </section>
 
             <!-- LE JARDINIER DE L'OMBRE -->
-            <section class="history-section jardinier-section">
-                <h2 class="section-title">Le Jardinier de l'Ombre</h2>
+            <section class="history-section jardinier-section scroll-reveal">
+                <h2 class="section-title" data-fr="Le Jardinier de l'Ombre" data-en="The Gardener of the Shadows">Le Jardinier de l'Ombre</h2>
                 <div class="jardinier-box">
                     <div class="jardinier-content">
-                        <p>
+                        <p data-fr="Derrière toute grande vision se cache souvent une main discrète, un cœur généreux qui travaille dans l'ombre. À SLACH, il y a eu un tel homme. Un « Jardinier de l'Ombre » qui a planté les graines, arrosé les premiers germes de cette école avec une dévouement absolu." data-en="Behind every great vision often hides a discreet hand, a generous heart that works in the shadows. At SLACH, there was such a man. A « Gardener of the Shadows » who planted the seeds, watered the first sprouts of this school with absolute devotion.">
                             <em>
                                 Derrière toute grande vision se cache souvent une main discrète, un cœur généreux qui travaille dans l'ombre. 
                                 À SLACH, il y a eu un tel homme. Un « Jardinier de l'Ombre » qui a planté les graines, arrosé les premiers germes 
                                 de cette école avec une dévouement absolu.
                             </em>
                         </p>
-                        <p>
+                        <p data-fr="Ce co-fondateur a agi sans chercher la reconnaissance. Pendant que d'autres parlaient, il agissait. Pendant que d'autres hésitaient, il payait les premiers enseignants de sa poche. Il a nourri les enfants qui arrivaient affamés. Il a fourni les tables, les chaises, les premiers cahiers. Il a cru en la vision quand beaucoup doutaient." data-en="This co-founder acted without seeking recognition. While others talked, he acted. While others hesitated, he paid the first teachers out of his own pocket. He fed the children who arrived hungry. He provided the tables, chairs, first notebooks. He believed in the vision when many doubted.">
                             Ce co-fondateur a agi sans chercher la reconnaissance. Pendant que d'autres parlaient, il agissait. Pendant que d'autres 
                             hésitaient, il payait les premiers enseignants de sa poche. Il a nourri les enfants qui arrivaient affamés. Il a fourni 
                             les tables, les chaises, les premiers cahiers. Il a cru en la vision quand beaucoup doutaient.
                         </p>
-                        <p>
+                        <p data-fr="Nous honorons aujourd'hui ce « Jardinier de l'Ombre ». Son héritage n'est pas gravé sur nos murs, mais il vit dans chaque enfant qui entre à SLACH. Dans chaque leçon enseignée. Dans chaque rêve qu'un élève ose caresser. Sa générosité anonyme a construit les fondations de notre institution, et nous nous engageons à perpétuer l'esprit de sacrifice et de dévouement qu'il a démontré." data-en="Today we honor this « Gardener of the Shadows ». His legacy is not carved on our walls, but he lives in every child who enters SLACH. In every lesson taught. In every dream a student dares to cherish. His anonymous generosity built the foundations of our institution, and we are committed to perpetuating the spirit of sacrifice and devotion he demonstrated.">
                             Nous honorons aujourd'hui ce « Jardinier de l'Ombre ». Son héritage n'est pas gravé sur nos murs, mais il vit dans 
                             chaque enfant qui entre à SLACH. Dans chaque leçon enseignée. Dans chaque rêve qu'un élève ose caresser. 
                             Sa générosité anonyme a construit les fondations de notre institution, et nous nous engageons à perpétuer l'esprit 
@@ -103,25 +121,25 @@
             </section>
 
             <!-- L'HÉRITAGE D'ANACAONA -->
-            <section class="history-section">
-                <h2 class="section-title">L'Héritage d'Anacaona</h2>
+            <section class="history-section scroll-reveal">
+                <h2 class="section-title" data-fr="L'Héritage d'Anacaona" data-en="The Legacy of Anacaona">L'Héritage d'Anacaona</h2>
                 <div class="content-box">
-                    <p>
+                    <p data-fr="Anacaona était une cacique taïno du XVe siècle, chef respectée et symbole de résistance contre l'oppression. Son nom signifie « Fleur d'Or » en langue taïno. Elle représentait la fierté, la dignité et la lutte pour la liberté. En nommant notre école Anacaona, nous nous inscrivons dans cette tradition de résistance et d'affirmation de la dignité humaine." data-en="Anacaona was a Taino cacica of the 15th century, a respected leader and symbol of resistance against oppression. Her name means « Golden Flower » in Taino. She represented pride, dignity and the fight for freedom. By naming our school Anacaona, we are part of this tradition of resistance and affirmation of human dignity.">
                         <strong>Anacaona</strong> était une cacique taïno du XVe siècle, chef respectée et symbole de résistance contre l'oppression. 
                         Son nom signifie « Fleur d'Or » en langue taïno. Elle représentait la fierté, la dignité et la lutte pour la liberté. 
                         En nommant notre école Anacaona, nous nous inscrivons dans cette tradition de résistance et d'affirmation de la dignité humaine.
                     </p>
-                    <p>
+                    <p data-fr="Le choix de ce nom n'est pas accidentel. Chaque jour, nos élèves apprennent qu'ils portent un héritage de dignité et de courage. Que peu importe d'où ils viennent, peu importe leur situation économique ou sociale, ils sont les héritiers d'une tradition de liberté et de fierté." data-en="The choice of this name is not accidental. Every day, our students learn that they carry a legacy of dignity and courage. That no matter where they come from, no matter their economic or social situation, they are heirs to a tradition of freedom and pride.">
                         Le choix de ce nom n'est pas accidentel. Chaque jour, nos élèves apprennent qu'ils portent un héritage de dignité et de courage. 
                         Que peu importe d'où ils viennent, peu importe leur situation économique ou sociale, ils sont les héritiers d'une tradition 
                         de liberté et de fierté.
                     </p>
-                    <p>
+                    <p data-fr="La « Fleur d'Or » n'est pas simplement un nom poétique. C'est la représentation de notre conviction que chaque enfant qui vient à SLACH porte en lui un potentiel extraordinaire. Notre mission est de cultiver cette fleur, de permettre à chaque élève d'épanouir ses talents et de devenir une « Fleur d'Or » – un citoyen capable, conscient et fier de son identité haïtienne." data-en="The « Golden Flower » is not just a poetic name. It's the representation of our conviction that every child who comes to SLACH carries extraordinary potential within them. Our mission is to cultivate this flower, to allow each student to develop their talents and become a « Golden Flower » – a capable, conscious citizen proud of their Haitian identity.">
                         La « Fleur d'Or » n'est pas simplement un nom poétique. C'est la représentation de notre conviction que chaque enfant qui vient à SLACH 
                         porte en lui un potentiel extraordinaire. Notre mission est de cultiver cette fleur, de permettre à chaque élève d'épanouir ses talents 
                         et de devenir une « Fleur d'Or » – un citoyen capable, conscient et fier de son identité haïtienne.
                     </p>
-                    <p>
+                    <p data-fr="Nous cultivons l'excellence académique, mais aussi la conscience civique. Nous enseignons le français et les mathématiques, mais nous formons avant tout des citoyens. Des hommes et des femmes qui comprendront qu'ils ont le pouvoir de transformer leur pays et le monde." data-en="We cultivate academic excellence, but also civic awareness. We teach French and mathematics, but above all we train citizens. Men and women who will understand that they have the power to transform their country and the world.">
                         Nous cultivons l'excellence académique, mais aussi la conscience civique. Nous enseignons le français et les mathématiques, 
                         mais nous formons avant tout des citoyens. Des hommes et des femmes qui comprendront qu'ils ont le pouvoir de transformer leur pays 
                         et le monde.
@@ -130,20 +148,20 @@
             </section>
 
             <!-- NOTRE ENGAGEMENT -->
-            <section class="history-section commitment-section">
-                <h2 class="section-title">Notre Engagement Continu</h2>
+            <section class="history-section commitment-section scroll-reveal">
+                <h2 class="section-title" data-fr="Notre Engagement Continu" data-en="Our Continuing Commitment">Notre Engagement Continu</h2>
                 <div class="commitment-cards">
                     <div class="commitment-card">
-                        <h3>Depuis 1996</h3>
-                        <p>28 ans de dévouement ininterrompu à l'éducation inclusive et à la transformation des vies dans le Cap-Haitien.</p>
+                        <h3 data-fr="Depuis 1996" data-en="Since 1996">Depuis 1996</h3>
+                        <p data-fr="28 ans de dévouement ininterrompu à l'éducation inclusive et à la transformation des vies dans le Cap-Haitien." data-en="28 years of uninterrupted dedication to inclusive education and transforming lives in Cap-Haitien.">28 ans de dévouement ininterrompu à l'éducation inclusive et à la transformation des vies dans le Cap-Haitien.</p>
                     </div>
                     <div class="commitment-card">
-                        <h3>Solidarité Absolue</h3>
-                        <p>Nous ne sélectionnons pas nos élèves selon leur richesse. Chaque enfant est bienvenu, accompagné et soutenu équitablement.</p>
+                        <h3 data-fr="Solidarité Absolue" data-en="Absolute Solidarity">Solidarité Absolue</h3>
+                        <p data-fr="Nous ne sélectionnons pas nos élèves selon leur richesse. Chaque enfant est bienvenu, accompagné et soutenu équitablement." data-en="We do not select our students based on their wealth. Every child is welcome, accompanied and supported equitably.">Nous ne sélectionnons pas nos élèves selon leur richesse. Chaque enfant est bienvenu, accompagné et soutenu équitablement.</p>
                     </div>
                     <div class="commitment-card">
-                        <h3>Excellence & Dignité</h3>
-                        <p>Nous exigeons l'excellence académique tout en préservant la dignité de chaque enfant. Pas de punitions humiliantes, uniquement de l'éducation.</p>
+                        <h3 data-fr="Excellence & Dignité" data-en="Excellence & Dignity">Excellence & Dignité</h3>
+                        <p data-fr="Nous exigeons l'excellence académique tout en préservant la dignité de chaque enfant. Pas de punitions humiliantes, uniquement de l'éducation." data-en="We demand academic excellence while preserving the dignity of every child. No humiliating punishments, only education.">Nous exigeons l'excellence académique tout en préservant la dignité de chaque enfant. Pas de punitions humiliantes, uniquement de l'éducation.</p>
                     </div>
                 </div>
             </section>
@@ -155,22 +173,37 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Semi-Lycée Anacaona du Cap-Haitien</h4>
-                    <p>© 2024 SLACH. Tous droits réservés.</p>
+                    <h4 data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
+                    <p data-fr="Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996." data-en="Inclusive and quality education for all children of Cap-Haïtien since 1996.">Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996.</p>
+                    <p class="footer-motto" data-fr="\"Travail, Patrie, Dieu\" - Notre devise, notre engagement envers l'excellence et la nation." data-en="\"Work, Country, God\" - Our motto, our commitment to excellence and the nation.">"Travail, Patrie, Dieu" - Notre devise, notre engagement envers l'excellence et la nation.</p>
                 </div>
                 <div class="footer-section">
-                    <p class="footer-motto">
-                        <em>"Travail, Patrie, Dieu"</em> - Notre devise, notre engagement envers l'excellence et la nation.
-                    </p>
+                    <h4 data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+                    <a href="genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                    <a href="charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                    <a href="vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                    <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
                 </div>
                 <div class="footer-section">
-                    <a href="charter.html">Documents Officiels</a>
-                    <a href="contact.html">Nous Contacter</a>
+                    <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+                    <p data-fr="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti" data-en="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haiti">📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti</p>
+                    <p data-fr="📞 7866195621<br>+509 42629604<br>+509 43213720" data-en="📞 7866195621<br>+509 42629604<br>+509 43213720">📞 7866195621<br>+509 42629604<br>+509 43213720</p>
+                    <p>✉️ info@slach.ht</p>
                 </div>
+                <div class="footer-section">
+                    <h4 data-fr="Nos Valeurs" data-en="Our Values">Nos Valeurs</h4>
+                    <p data-fr="• Esprit Patriotique" data-en="• Patriotic Spirit">• Esprit Patriotique</p>
+                    <p data-fr="• Solidarité" data-en="• Solidarity">• Solidarité</p>
+                    <p data-fr="• Excellence Académique" data-en="• Academic Excellence">• Excellence Académique</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-fr="© 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona du Cap-Haitien. All rights reserved.">&copy; 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

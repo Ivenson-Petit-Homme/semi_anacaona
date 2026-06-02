@@ -5,233 +5,246 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vie Scolaire - SLACH</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body>
     <!-- HEADER & NAVIGATION -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
-                <img src="LOGO1.jpeg" alt="Logo SLACH" class="logo">
+                <img src="../assets/images/LOGO1.jpeg" alt="Logo SLACH" class="logo">
             </div>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
+                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
-                <a href="index.html" class="nav-link">Accueil</a>
-                <a href="genese.html" class="nav-link">La Genèse</a>
-                <a href="charter.html" class="nav-link">Charte & Règlements</a>
-                <a href="vie-scolaire.html" class="nav-link active">Vie Scolaire</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="../index.html" class="nav-link" data-fr="Accueil" data-en="Home">Accueil</a>
+                <a href="genese.html" class="nav-link" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                <a href="charter.html" class="nav-link" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                <a href="vie-scolaire.html" class="nav-link active" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                <a href="contact.html" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button">Nous Rejoindre</button>
+            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
     <!-- FEATURED IMAGE -->
     <section class="featured-image-section">
-        <img src="WhatsApp Image 2025-11-25 at 1.15.04 PM (1).jpeg" alt="Nos élèves en uniforme vert et blanc">
-        <div class="image-overlay-text">
-            <h1>Vie Scolaire & Vie Étudiante</h1>
-            <p>L'expérience SLACH : Apprendre, Grandir, S'Épanouir</p>
+        <img src="../assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM (1).jpeg" alt="Nos élèves en uniforme vert et blanc">
+        <div class="image-overlay-text animate-fadeInUp">
+            <h1 data-fr="Vie Scolaire & Vie Étudiante" data-en="School Life & Student Life">Vie Scolaire & Vie Étudiante</h1>
+            <p data-fr="L'expérience SLACH : Apprendre, Grandir, S'Épanouir" data-en="The SLACH experience: Learn, Grow, Thrive">L'expérience SLACH : Apprendre, Grandir, S'Épanouir</p>
         </div>
     </section>
 
     <main class="container">
         <!-- SECTION 1: UN PARCOURS VERS LA FLEUR D'OR -->
-        <section class="life-section">
-            <h2 class="section-title">Un Parcours vers la Fleur d'Or</h2>
+        <section class="life-section scroll-reveal">
+            <h2 class="section-title" data-fr="Un Parcours vers la Fleur d'Or" data-en="A Journey to the Golden Flower">Un Parcours vers la Fleur d'Or</h2>
             <div class="section-content">
-                <p>
+                <p data-fr="Chaque élève qui entre à SLACH commence un voyage transformateur. Notre nom « Anacaona » signifie « Fleur d'Or » et symbolise le potentiel extraordinaire de chaque enfant. Notre pédagogie est conçue pour cultiver ce potentiel." data-en="Every student who enters SLACH begins a transformative journey. Our name « Anacaona » means « Golden Flower » and symbolizes the extraordinary potential of every child. Our pedagogy is designed to cultivate this potential.">
                     Chaque élève qui entre à SLACH commence un voyage transformateur. Notre nom « Anacaona » signifie « Fleur d'Or » 
                     et symbolise le potentiel extraordinaire de chaque enfant. Notre pédagogie est conçue pour cultiver ce potentiel.
                 </p>
 
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Le Manuel de l'Élève & L'Auto-Évaluation</h3>
-                <p>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Le Manuel de l'Élève & L'Auto-Évaluation" data-en="Student Handbook & Self-Assessment">Le Manuel de l'Élève & L'Auto-Évaluation</h3>
+                <p data-fr="Chaque élève reçoit un manuel complet expliquant les valeurs de l'école, les attentes académiques et les principes de civisme. Mais plus important encore, nous enseignons à chaque élève à s'auto-évaluer." data-en="Every student receives a complete handbook explaining the school's values, academic expectations, and principles of civic responsibility. But more importantly, we teach each student to self-assess.">
                     Chaque élève reçoit un manuel complet expliquant les valeurs de l'école, les attentes académiques et 
                     les principes de civisme. Mais plus important encore, nous enseignons à chaque élève à s'auto-évaluer.
                 </p>
                 <div class="content-highlight">
-                    <p>
-                        <strong>L'auto-évaluation</strong> est au cœur de notre pédagogie. Les élèves apprennent à :
+                    <p data-fr="L'auto-évaluation est au cœur de notre pédagogie. Les élèves apprennent à :" data-en="Self-assessment is at the heart of our pedagogy. Students learn to:">
+                        <strong data-fr="L'auto-évaluation" data-en="Self-assessment">L'auto-évaluation</strong> est au cœur de notre pédagogie. Les élèves apprennent à :
                     </p>
                     <ul style="margin-left: 1.5rem;">
-                        <li>Reconnaître leurs forces et leurs faiblesses</li>
-                        <li>Fixer des objectifs personnels réalistes</li>
-                        <li>Mesurer leur propre progrès</li>
-                        <li>Prendre responsibility de leur apprentissage</li>
-                        <li>Réfléchir critiquement sur leur comportement éthique</li>
+                        <li data-fr="Reconnaître leurs forces et leurs faiblesses" data-en="Recognize their strengths and weaknesses">Reconnaître leurs forces et leurs faiblesses</li>
+                        <li data-fr="Fixer des objectifs personnels réalistes" data-en="Set realistic personal goals">Fixer des objectifs personnels réalistes</li>
+                        <li data-fr="Mesurer leur propre progrès" data-en="Measure their own progress">Mesurer leur propre progrès</li>
+                        <li data-fr="Prendre responsibility de leur apprentissage" data-en="Take responsibility for their learning">Prendre responsibility de leur apprentissage</li>
+                        <li data-fr="Réfléchir critiquement sur leur comportement éthique" data-en="Think critically about their ethical behavior">Réfléchir critiquement sur leur comportement éthique</li>
                     </ul>
                 </div>
 
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Phases du Parcours Étudiant</h3>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Phases du Parcours Étudiant" data-en="Student Journey Phases">Phases du Parcours Étudiant</h3>
                 <div class="phases-grid">
                     <div class="phase-card">
                         <div class="phase-number">1</div>
-                        <h4>Intégration</h4>
-                        <p>L'élève découvre SLACH, comprend nos valeurs et s'intègre à la communauté.</p>
+                        <h4 data-fr="Intégration" data-en="Integration">Intégration</h4>
+                        <p data-fr="L'élève découvre SLACH, comprend nos valeurs et s'intègre à la communauté." data-en="The student discovers SLACH, understands our values, and integrates into the community.">L'élève découvre SLACH, comprend nos valeurs et s'intègre à la communauté.</p>
                     </div>
                     <div class="phase-card">
                         <div class="phase-number">2</div>
-                        <h4>Apprentissage Actif</h4>
-                        <p>Développement académique, renforcement des compétences essentielles et engagement communautaire.</p>
+                        <h4 data-fr="Apprentissage Actif" data-en="Active Learning">Apprentissage Actif</h4>
+                        <p data-fr="Développement académique, renforcement des compétences essentielles et engagement communautaire." data-en="Academic development, strengthening essential skills, and community engagement.">Développement académique, renforcement des compétences essentielles et engagement communautaire.</p>
                     </div>
                     <div class="phase-card">
                         <div class="phase-number">3</div>
-                        <h4>Maîtrise & Leadership</h4>
-                        <p>L'élève devient confident, leader et ambassadeur des valeurs de SLACH.</p>
+                        <h4 data-fr="Maîtrise & Leadership" data-en="Mastery & Leadership">Maîtrise & Leadership</h4>
+                        <p data-fr="L'élève devient confident, leader et ambassadeur des valeurs de SLACH." data-en="The student becomes confident, a leader, and an ambassador of SLACH's values.">L'élève devient confident, leader et ambassadeur des valeurs de SLACH.</p>
                     </div>
                     <div class="phase-card">
                         <div class="phase-number">4</div>
-                        <h4>Fleur d'Or</h4>
-                        <p>Diplômé de SLACH, l'élève sort transformé, prêt à transformer son pays et le monde.</p>
+                        <h4 data-fr="Fleur d'Or" data-en="Golden Flower">Fleur d'Or</h4>
+                        <p data-fr="Diplômé de SLACH, l'élève sort transformé, prêt à transformer son pays et le monde." data-en="Graduated from SLACH, the student leaves transformed, ready to transform their country and the world.">Diplômé de SLACH, l'élève sort transformé, prêt à transformer son pays et le monde.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 2: PARTENAIRES DE LA RÉUSSITE -->
-        <section class="life-section">
-            <h2 class="section-title">Partenaires de la Réussite - Guide du Parent</h2>
+        <section class="life-section scroll-reveal">
+            <h2 class="section-title" data-fr="Partenaires de la Réussite - Guide du Parent" data-en="Success Partners - Parent Guide">Partenaires de la Réussite - Guide du Parent</h2>
             <div class="section-content">
-                <p>
+                <p data-fr="L'éducation est un travail collectif. Les parents sont des partenaires essentiels du succès de leurs enfants. Nous avons développé un guide complet pour les familles basé sur 10 commandements fondamentaux." data-en="Education is a collective effort. Parents are essential partners in their children's success. We have developed a comprehensive guide for families based on 10 fundamental commandments.">
                     L'éducation est un travail collectif. Les parents sont des partenaires essentiels du succès de leurs enfants. 
                     Nous avons développé un guide complet pour les familles basé sur 10 commandements fondamentaux.
                 </p>
 
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Les 10 Commandements pour les Parents</h3>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Les 10 Commandements pour les Parents" data-en="The 10 Commandments for Parents">Les 10 Commandements pour les Parents</h3>
                 <div class="commandments-list">
                     <div class="commandment-item">
                         <div class="commandment-number">1</div>
                         <div class="commandment-text">
-                            <h4>S'engager pour l'assiduité</h4>
-                            <p>Assurer que votre enfant assiste régulièrement aux cours et est à l'heure.</p>
+                            <h4 data-fr="S'engager pour l'assiduité" data-en="Commit to Attendance">S'engager pour l'assiduité</h4>
+                            <p data-fr="Assurer que votre enfant assiste régulièrement aux cours et est à l'heure." data-en="Ensure your child regularly attends classes and is on time.">Assurer que votre enfant assiste régulièrement aux cours et est à l'heure.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">2</div>
                         <div class="commandment-text">
-                            <h4>Créer un espace d'étude à la maison</h4>
-                            <p>Fournir un endroit calme et organisé pour que l'enfant puisse faire ses devoirs.</p>
+                            <h4 data-fr="Créer un espace d'étude à la maison" data-en="Create a Study Space at Home">Créer un espace d'étude à la maison</h4>
+                            <p data-fr="Fournir un endroit calme et organisé pour que l'enfant puisse faire ses devoirs." data-en="Provide a quiet and organized place for the child to do homework.">Fournir un endroit calme et organisé pour que l'enfant puisse faire ses devoirs.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">3</div>
                         <div class="commandment-text">
-                            <h4>Suivre le progrès académique</h4>
-                            <p>Consulter régulièrement les notes, les rapports et discuter des progrès avec l'enfant.</p>
+                            <h4 data-fr="Suivre le progrès académique" data-en="Track Academic Progress">Suivre le progrès académique</h4>
+                            <p data-fr="Consulter régulièrement les notes, les rapports et discuter des progrès avec l'enfant." data-en="Regularly review grades, reports, and discuss progress with the child.">Consulter régulièrement les notes, les rapports et discuter des progrès avec l'enfant.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">4</div>
                         <div class="commandment-text">
-                            <h4>Communiquer avec les enseignants</h4>
-                            <p>Maintenir un dialogue régulier avec les professeurs concernant le bien-être et l'apprentissage.</p>
+                            <h4 data-fr="Communiquer avec les enseignants" data-en="Communicate with Teachers">Communiquer avec les enseignants</h4>
+                            <p data-fr="Maintenir un dialogue régulier avec les professeurs concernant le bien-être et l'apprentissage." data-en="Maintain regular dialogue with teachers regarding well-being and learning.">Maintenir un dialogue régulier avec les professeurs concernant le bien-être et l'apprentissage.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">5</div>
                         <div class="commandment-text">
-                            <h4>Renforcer les valeurs de SLACH</h4>
-                            <p>Enseigner la dignité, la solidarité et l'excellence à la maison.</p>
+                            <h4 data-fr="Renforcer les valeurs de SLACH" data-en="Reinforce SLACH Values">Renforcer les valeurs de SLACH</h4>
+                            <p data-fr="Enseigner la dignité, la solidarité et l'excellence à la maison." data-en="Teach dignity, solidarity, and excellence at home.">Enseigner la dignité, la solidarité et l'excellence à la maison.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">6</div>
                         <div class="commandment-text">
-                            <h4>Limiter les distractions</h4>
-                            <p>Gérer le temps d'écran et les distractions pour favoriser la concentration.</p>
+                            <h4 data-fr="Limiter les distractions" data-en="Limit Distractions">Limiter les distractions</h4>
+                            <p data-fr="Gérer le temps d'écran et les distractions pour favoriser la concentration." data-en="Manage screen time and distractions to promote concentration.">Gérer le temps d'écran et les distractions pour favoriser la concentration.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">7</div>
                         <div class="commandment-text">
-                            <h4>Promouvoir la lecture</h4>
-                            <p>Encourager la lecture régulière et la curiosité intellectuelle.</p>
+                            <h4 data-fr="Promouvoir la lecture" data-en="Promote Reading">Promouvoir la lecture</h4>
+                            <p data-fr="Encourager la lecture régulière et la curiosité intellectuelle." data-en="Encourage regular reading and intellectual curiosity.">Encourager la lecture régulière et la curiosité intellectuelle.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">8</div>
                         <div class="commandment-text">
-                            <h4>Soutenir affectivement</h4>
-                            <p>Être présent émotionnellement, écouter et soutenir dans les difficultés.</p>
+                            <h4 data-fr="Soutenir affectivement" data-en="Support Emotionally">Soutenir affectivement</h4>
+                            <p data-fr="Être présent émotionnellement, écouter et soutenir dans les difficultés." data-en="Be present emotionally, listen, and support through difficulties.">Être présent émotionnellement, écouter et soutenir dans les difficultés.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">9</div>
                         <div class="commandment-text">
-                            <h4>Participer à la vie scolaire</h4>
-                            <p>Assister aux événements, rencontres avec les enseignants et activités communautaires.</p>
+                            <h4 data-fr="Participer à la vie scolaire" data-en="Participate in School Life">Participer à la vie scolaire</h4>
+                            <p data-fr="Assister aux événements, rencontres avec les enseignants et activités communautaires." data-en="Attend events, teacher meetings, and community activities.">Assister aux événements, rencontres avec les enseignants et activités communautaires.</p>
                         </div>
                     </div>
                     <div class="commandment-item">
                         <div class="commandment-number">10</div>
                         <div class="commandment-text">
-                            <h4>Croire au potentiel de l'enfant</h4>
-                            <p>Exprimer votre confiance dans les capacités de votre enfant et l'encourager constamment.</p>
+                            <h4 data-fr="Croire au potentiel de l'enfant" data-en="Believe in the Child's Potential">Croire au potentiel de l'enfant</h4>
+                            <p data-fr="Exprimer votre confiance dans les capacités de votre enfant et l'encourager constamment." data-en="Express your confidence in your child's abilities and encourage them constantly.">Exprimer votre confiance dans les capacités de votre enfant et l'encourager constamment.</p>
                         </div>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 3rem; color: #3D8B46;">Suivi à la Maison</h3>
-                <p style="margin-top: 1rem;">
+                <h3 style="margin-top: 3rem; color: #3D8B46;" data-fr="Suivi à la Maison" data-en="Home Monitoring">Suivi à la Maison</h3>
+                <p style="margin-top: 1rem;" data-fr="Les parents disposent d'outils de suivi réguliers :" data-en="Parents have regular monitoring tools:">
                     Les parents disposent d'outils de suivi réguliers :
                 </p>
                 <ul style="margin-left: 1.5rem;">
-                    <li><strong>Bulletins mensuels :</strong> Rapports détaillés sur les progrès académiques</li>
-                    <li><strong>Carnet de liaison :</strong> Communication quotidienne entre école et maison</li>
-                    <li><strong>Réunions parents-enseignants :</strong> Au moins 3 par an</li>
-                    <li><strong>Appels réguliers :</strong> Pour partager les succès et discuter des défis</li>
-                    <li><strong>Accès en ligne :</strong> Plateforme pour consulter les notes et les annonces</li>
+                    <li data-fr="Bulletins mensuels : Rapports détaillés sur les progrès académiques" data-en="Monthly Bulletins: Detailed reports on academic progress"><strong data-fr="Bulletins mensuels" data-en="Monthly Bulletins">Bulletins mensuels</strong> : Rapports détaillés sur les progrès académiques</li>
+                    <li data-fr="Carnet de liaison : Communication quotidienne entre école et maison" data-en="Contact Notebook: Daily communication between school and home"><strong data-fr="Carnet de liaison" data-en="Contact Notebook">Carnet de liaison</strong> : Communication quotidienne entre école et maison</li>
+                    <li data-fr="Réunions parents-enseignants : Au moins 3 par an" data-en="Parent-Teacher Meetings: At least 3 per year"><strong data-fr="Réunions parents-enseignants" data-en="Parent-Teacher Meetings">Réunions parents-enseignants</strong> : Au moins 3 par an</li>
+                    <li data-fr="Appels réguliers : Pour partager les succès et discuter des défis" data-en="Regular Calls: To share successes and discuss challenges"><strong data-fr="Appels réguliers" data-en="Regular Calls">Appels réguliers</strong> : Pour partager les succès et discuter des défis</li>
+                    <li data-fr="Accès en ligne : Plateforme pour consulter les notes et les annonces" data-en="Online Access: Platform to view grades and announcements"><strong data-fr="Accès en ligne" data-en="Online Access">Accès en ligne</strong> : Plateforme pour consulter les notes et les annonces</li>
                 </ul>
             </div>
         </section>
 
         <!-- SECTION 3: INFRASTRUCTURES -->
-        <section class="life-section">
-            <h2 class="section-title">Nos Infrastructures</h2>
+        <section class="life-section scroll-reveal">
+            <h2 class="section-title" data-fr="Nos Infrastructures" data-en="Our Infrastructure">Nos Infrastructures</h2>
             <div class="infrastructure-intro">
-                <img src="WhatsApp Image 2025-11-25 at 1.15.04 PM.jpeg" alt="Bâtiment principal et installations SLACH" style="width: 100%; max-width: 600px; margin: 1.5rem 0; border-radius: 8px;">
+                <img src="../assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM.jpeg" alt="Bâtiment principal et installations SLACH" style="width: 100%; max-width: 600px; margin: 1.5rem 0; border-radius: 8px;">
             </div>
             
             <div class="section-content">
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Bâtiment Principal - Architecture Moderne</h3>
-                <p>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Bâtiment Principal - Architecture Moderne" data-en="Main Building - Modern Architecture">Bâtiment Principal - Architecture Moderne</h3>
+                <p data-fr="Notre bâtiment principal de deux étages est construit pour accueillir confortablement nos trois horaires de cours. Chaque salle de classe est équipée de matériel pédagogique moderne et d'une ventilation adéquate." data-en="Our two-story main building is designed to comfortably accommodate our three class schedules. Each classroom is equipped with modern teaching materials and adequate ventilation.">
                     Notre bâtiment principal de deux étages est construit pour accueillir confortablement nos trois horaires 
                     de cours. Chaque salle de classe est équipée de matériel pédagogique moderne et d'une ventilation adéquate.
                 </p>
 
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Laboratoire Informatique</h3>
-                <p>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Laboratoire Informatique" data-en="Computer Lab">Laboratoire Informatique</h3>
+                <p data-fr="SLACH dispose d'un laboratoire informatique moderne avec des ordinateurs connectés à Internet. Les élèves apprennent les compétences numériques essentielles pour le XXIe siècle :" data-en="SLACH has a modern computer lab with Internet-connected computers. Students learn essential digital skills for the 21st century:">
                     SLACH dispose d'un laboratoire informatique moderne avec des ordinateurs connectés à Internet. 
                     Les élèves apprennent les compétences numériques essentielles pour le XXIe siècle :
                 </p>
                 <ul style="margin-left: 1.5rem;">
-                    <li>Traitement de texte et bureautique</li>
-                    <li>Recherche en ligne et littératie numérique</li>
-                    <li>Programmation introductive</li>
-                    <li>Utilisation responsable de la technologie</li>
-                    <li>Cybersécurité et protection des données</li>
+                    <li data-fr="Traitement de texte et bureautique" data-en="Word processing and office automation">Traitement de texte et bureautique</li>
+                    <li data-fr="Recherche en ligne et littératie numérique" data-en="Online research and digital literacy">Recherche en ligne et littératie numérique</li>
+                    <li data-fr="Programmation introductive" data-en="Introductory programming">Programmation introductive</li>
+                    <li data-fr="Utilisation responsable de la technologie" data-en="Responsible use of technology">Utilisation responsable de la technologie</li>
+                    <li data-fr="Cybersécurité et protection des données" data-en="Cybersecurity and data protection">Cybersécurité et protection des données</li>
                 </ul>
 
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Cour & Espace de Sports</h3>
-                <p>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Cour & Espace de Sports" data-en="Courtyard & Sports Area">Cour & Espace de Sports</h3>
+                <p data-fr="Notre cour centrale dispose d'un terrain de basketball et d'espaces de récréation. L'éducation physique est importante à SLACH pour :" data-en="Our central courtyard has a basketball court and recreational areas. Physical education is important at SLACH for:">
                     Notre cour centrale dispose d'un terrain de basketball et d'espaces de récréation. 
                     L'éducation physique est importante à SLACH pour :
                 </p>
                 <ul style="margin-left: 1.5rem;">
-                    <li>Développer la santé et le bien-être physique</li>
-                    <li>Construire le travail en équipe et l'esprit de coopération</li>
-                    <li>Offrir un espace de détente et de jeu</li>
-                    <li>Organiser des événements sportifs et communautaires</li>
+                    <li data-fr="Développer la santé et le bien-être physique" data-en="Develop health and physical well-being">Développer la santé et le bien-être physique</li>
+                    <li data-fr="Construire le travail en équipe et l'esprit de coopération" data-en="Build teamwork and cooperation spirit">Construire le travail en équipe et l'esprit de coopération</li>
+                    <li data-fr="Offrir un espace de détente et de jeu" data-en="Offer a relaxation and play space">Offrir un espace de détente et de jeu</li>
+                    <li data-fr="Organiser des événements sportifs et communautaires" data-en="Organize sports and community events">Organiser des événements sportifs et communautaires</li>
                 </ul>
 
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Bibliothèque & Ressources</h3>
-                <p>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Bibliothèque & Ressources" data-en="Library & Resources">Bibliothèque & Ressources</h3>
+                <p data-fr="Notre bibliothèque est un espace d'apprentissage riche avec des livres, des revues, des ressources en ligne et un personnel formé. C'est un sanctuaire du savoir accessible à tous nos élèves." data-en="Our library is a rich learning space with books, magazines, online resources, and trained staff. It's a sanctuary of knowledge accessible to all our students.">
                     Notre bibliothèque est un espace d'apprentissage riche avec des livres, des revues, des ressources en ligne 
                     et un personnel formé. C'est un sanctuaire du savoir accessible à tous nos élèves.
                 </p>
 
-                <h3 style="margin-top: 2rem; color: #3D8B46;">Espace Administratif & d'Orientation</h3>
-                <p>
+                <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Espace Administratif & d'Orientation" data-en="Administrative & Guidance Area">Espace Administratif & d'Orientation</h3>
+                <p data-fr="Nous avons des conseillers d'orientation et un personnel administratif dédié au soutien académique et personnel de nos élèves. Les problèmes personnels, les difficultés d'apprentissage et les orientations professionnelles sont adressés avec soin et confidentialité." data-en="We have guidance counselors and administrative staff dedicated to the academic and personal support of our students. Personal issues, learning difficulties, and career guidance are addressed with care and confidentiality.">
                     Nous avons des conseillers d'orientation et un personnel administratif dédié au soutien académique et personnel 
                     de nos élèves. Les problèmes personnels, les difficultés d'apprentissage et les orientations professionnelles 
                     sont adressés avec soin et confidentialité.
@@ -240,71 +253,71 @@
         </section>
 
         <!-- SECTION 4: ACTIVITÉS & CLUBS -->
-        <section class="life-section">
-            <h2 class="section-title">Activités Parascolaires & Clubs</h2>
+        <section class="life-section scroll-reveal">
+            <h2 class="section-title" data-fr="Activités Parascolaires & Clubs" data-en="Extracurricular Activities & Clubs">Activités Parascolaires & Clubs</h2>
             <div class="activities-grid">
                 <div class="activity-card">
-                    <h3>🎭 Club de Théâtre</h3>
-                    <p>Expression créative, développement de la confiance et exploration de l'art dramatique.</p>
+                    <h3 data-fr="🎭 Club de Théâtre" data-en="🎭 Drama Club">🎭 Club de Théâtre</h3>
+                    <p data-fr="Expression créative, développement de la confiance et exploration de l'art dramatique." data-en="Creative expression, confidence building, and exploration of dramatic art.">Expression créative, développement de la confiance et exploration de l'art dramatique.</p>
                 </div>
                 <div class="activity-card">
-                    <h3>⚽ Équipes Sportives</h3>
-                    <p>Basketball, football et autres sports pour promouvoir le travail en équipe et la santé.</p>
+                    <h3 data-fr="⚽ Équipes Sportives" data-en="⚽ Sports Teams">⚽ Équipes Sportives</h3>
+                    <p data-fr="Basketball, football et autres sports pour promouvoir le travail en équipe et la santé." data-en="Basketball, football, and other sports to promote teamwork and health.">Basketball, football et autres sports pour promouvoir le travail en équipe et la santé.</p>
                 </div>
                 <div class="activity-card">
-                    <h3>📖 Club de Lecture</h3>
-                    <p>Découverte de la littérature haïtienne, mondiale et développement du goût pour la lecture.</p>
+                    <h3 data-fr="📖 Club de Lecture" data-en="📖 Reading Club">📖 Club de Lecture</h3>
+                    <p data-fr="Découverte de la littérature haïtienne, mondiale et développement du goût pour la lecture." data-en="Discovery of Haitian and world literature, and development of a love for reading.">Découverte de la littérature haïtienne, mondiale et développement du goût pour la lecture.</p>
                 </div>
                 <div class="activity-card">
-                    <h3>🎨 Atelier d'Art & Design</h3>
-                    <p>Peinture, dessin, arts plastiques pour exprimer la créativité et l'identité culturelle.</p>
+                    <h3 data-fr="🎨 Atelier d'Art & Design" data-en="🎨 Art & Design Workshop">🎨 Atelier d'Art & Design</h3>
+                    <p data-fr="Peinture, dessin, arts plastiques pour exprimer la créativité et l'identité culturelle." data-en="Painting, drawing, and visual arts to express creativity and cultural identity.">Peinture, dessin, arts plastiques pour exprimer la créativité et l'identité culturelle.</p>
                 </div>
                 <div class="activity-card">
-                    <h3>🎵 Club Musical</h3>
-                    <p>Musique traditionnelle haïtienne, chants, instruments et apprentissage musical.</p>
+                    <h3 data-fr="🎵 Club Musical" data-en="🎵 Music Club">🎵 Club Musical</h3>
+                    <p data-fr="Musique traditionnelle haïtienne, chants, instruments et apprentissage musical." data-en="Traditional Haitian music, singing, instruments, and music education.">Musique traditionnelle haïtienne, chants, instruments et apprentissage musical.</p>
                 </div>
                 <div class="activity-card">
-                    <h3>🌍 Club de Citoyenneté Globale</h3>
-                    <p>Débats sur les enjeux sociaux, environnementaux et mondiaux pour former des citoyens conscients.</p>
+                    <h3 data-fr="🌍 Club de Citoyenneté Globale" data-en="🌍 Global Citizenship Club">🌍 Club de Citoyenneté Globale</h3>
+                    <p data-fr="Débats sur les enjeux sociaux, environnementaux et mondiaux pour former des citoyens conscients." data-en="Debates on social, environmental, and global issues to raise aware citizens.">Débats sur les enjeux sociaux, environnementaux et mondiaux pour former des citoyens conscients.</p>
                 </div>
                 <div class="activity-card">
-                    <h3>💻 Club Technologie</h3>
-                    <p>Programmation, robotique et exploration des technologies futures.</p>
+                    <h3 data-fr="💻 Club Technologie" data-en="💻 Tech Club">💻 Club Technologie</h3>
+                    <p data-fr="Programmation, robotique et exploration des technologies futures." data-en="Programming, robotics, and exploration of future technologies.">Programmation, robotique et exploration des technologies futures.</p>
                 </div>
                 <div class="activity-card">
-                    <h3>🌱 Club Environnement</h3>
-                    <p>Écologie, durabilité et initiatives vertes pour protéger notre planète.</p>
+                    <h3 data-fr="🌱 Club Environnement" data-en="🌱 Environment Club">🌱 Club Environnement</h3>
+                    <p data-fr="Écologie, durabilité et initiatives vertes pour protéger notre planète." data-en="Ecology, sustainability, and green initiatives to protect our planet.">Écologie, durabilité et initiatives vertes pour protéger notre planète.</p>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 5: ÉVÉNEMENTS ANNUELS -->
-        <section class="life-section">
-            <h2 class="section-title">Événements Annuels & Célébrations</h2>
+        <section class="life-section scroll-reveal">
+            <h2 class="section-title" data-fr="Événements Annuels & Célébrations" data-en="Annual Events & Celebrations">Événements Annuels & Célébrations</h2>
             <div class="section-content">
-                <p>
+                <p data-fr="SLACH célèbre tout au long de l'année des événements qui renforce notre communauté et marquent les jalons importants :" data-en="SLACH celebrates events throughout the year that strengthen our community and mark important milestones:">
                     SLACH célèbre tout au long de l'année des événements qui renforce notre communauté et marquent les jalons importants :
                 </p>
                 <div class="events-list">
                     <div class="event-item">
-                        <h4>Rentrée Scolaire - Septembre</h4>
-                        <p>Célébration de bienvenue pour accueillir les nouveaux et anciens élèves.</p>
+                        <h4 data-fr="Rentrée Scolaire - Septembre" data-en="Back to School - September">Rentrée Scolaire - Septembre</h4>
+                        <p data-fr="Célébration de bienvenue pour accueillir les nouveaux et anciens élèves." data-en="Welcome celebration to greet new and returning students.">Célébration de bienvenue pour accueillir les nouveaux et anciens élèves.</p>
                     </div>
                     <div class="event-item">
-                        <h4>Journée Anacaona - Novembre</h4>
-                        <p>Célébration de notre héritage culturel avec activités, conférences et performances.</p>
+                        <h4 data-fr="Journée Anacaona - Novembre" data-en="Anacaona Day - November">Journée Anacaona - Novembre</h4>
+                        <p data-fr="Célébration de notre héritage culturel avec activités, conférences et performances." data-en="Celebration of our cultural heritage with activities, conferences, and performances.">Célébration de notre héritage culturel avec activités, conférences et performances.</p>
                     </div>
                     <div class="event-item">
-                        <h4>Semaine de l'Excellence - Mars</h4>
-                        <p>Récompense des élèves pour leurs accomplissements académiques, artistiques et civiques.</p>
+                        <h4 data-fr="Semaine de l'Excellence - Mars" data-en="Excellence Week - March">Semaine de l'Excellence - Mars</h4>
+                        <p data-fr="Récompense des élèves pour leurs accomplissements académiques, artistiques et civiques." data-en="Rewarding students for their academic, artistic, and civic achievements.">Récompense des élèves pour leurs accomplissements académiques, artistiques et civiques.</p>
                     </div>
                     <div class="event-item">
-                        <h4>Cérémonie de Remise de Diplômes - Juin</h4>
-                        <p>Célébration solennelle des élèves qui complètent leur parcours à SLACH.</p>
+                        <h4 data-fr="Cérémonie de Remise de Diplômes - Juin" data-en="Graduation Ceremony - June">Cérémonie de Remise de Diplômes - Juin</h4>
+                        <p data-fr="Célébration solennelle des élèves qui complètent leur parcours à SLACH." data-en="Solemn celebration of students who complete their journey at SLACH.">Célébration solennelle des élèves qui complètent leur parcours à SLACH.</p>
                     </div>
                     <div class="event-item">
-                        <h4>Tournoi Sportif Inter-Niveaux</h4>
-                        <p>Compétition amicale favorisant l'esprit d'équipe et la camaraderie.</p>
+                        <h4 data-fr="Tournoi Sportif Inter-Niveaux" data-en="Inter-Level Sports Tournament">Tournoi Sportif Inter-Niveaux</h4>
+                        <p data-fr="Compétition amicale favorisant l'esprit d'équipe et la camaraderie." data-en="Friendly competition promoting teamwork and camaraderie.">Compétition amicale favorisant l'esprit d'équipe et la camaraderie.</p>
                     </div>
                 </div>
             </div>
@@ -316,22 +329,37 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Semi-Lycée Anacaona du Cap-Haitien</h4>
-                    <p>© 2024 SLACH. Tous droits réservés.</p>
+                    <h4 data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
+                    <p data-fr="Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996." data-en="Inclusive and quality education for all children of Cap-Haïtien since 1996.">Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996.</p>
+                    <p class="footer-motto" data-fr="\"Travail, Patrie, Dieu\" - Notre devise, notre engagement envers l'excellence et la nation." data-en="\"Work, Country, God\" - Our motto, our commitment to excellence and the nation.">"Travail, Patrie, Dieu" - Notre devise, notre engagement envers l'excellence et la nation.</p>
                 </div>
                 <div class="footer-section">
-                    <p class="footer-motto">
-                        <em>"Travail, Patrie, Dieu"</em> - Notre devise, notre engagement envers l'excellence et la nation.
-                    </p>
+                    <h4 data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+                    <a href="genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                    <a href="charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                    <a href="vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                    <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
                 </div>
                 <div class="footer-section">
-                    <a href="charter.html">Documents Officiels</a>
-                    <a href="contact.html">Nous Contacter</a>
+                    <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+                    <p data-fr="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti" data-en="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haiti">📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti</p>
+                    <p data-fr="📞 7866195621<br>+509 42629604<br>+509 43213720" data-en="📞 7866195621<br>+509 42629604<br>+509 43213720">📞 7866195621<br>+509 42629604<br>+509 43213720</p>
+                    <p>✉️ info@slach.ht</p>
                 </div>
+                <div class="footer-section">
+                    <h4 data-fr="Nos Valeurs" data-en="Our Values">Nos Valeurs</h4>
+                    <p data-fr="• Esprit Patriotique" data-en="• Patriotic Spirit">• Esprit Patriotique</p>
+                    <p data-fr="• Solidarité" data-en="• Solidarity">• Solidarité</p>
+                    <p data-fr="• Excellence Académique" data-en="• Academic Excellence">• Excellence Académique</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-fr="© 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona du Cap-Haitien. All rights reserved.">&copy; 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

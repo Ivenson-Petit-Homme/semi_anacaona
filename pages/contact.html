@@ -5,48 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - SLACH</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body>
     <!-- HEADER & NAVIGATION -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
-                <img src="LOGO1.jpeg" alt="Logo SLACH" class="logo">
+                <img src="../assets/images/LOGO1.jpeg" alt="Logo SLACH" class="logo">
             </div>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
+                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
-                <a href="index.html" class="nav-link">Accueil</a>
-                <a href="genese.html" class="nav-link">La Genèse</a>
-                <a href="charter.html" class="nav-link">Charte & Règlements</a>
-                <a href="vie-scolaire.html" class="nav-link">Vie Scolaire</a>
-                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="../index.html" class="nav-link" data-fr="Accueil" data-en="Home">Accueil</a>
+                <a href="genese.html" class="nav-link" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                <a href="charter.html" class="nav-link" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                <a href="vie-scolaire.html" class="nav-link" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                <a href="contact.html" class="nav-link active" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button">Nous Rejoindre</button>
+            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
     <!-- PAGE TITLE -->
     <section class="page-title-section">
         <div class="container">
-            <h1>Nous Contacter</h1>
-            <p>Vous avez des questions ? Nous sommes ici pour vous aider.</p>
+            <h1 class="animate-fadeInUp" data-fr="Nous Contacter" data-en="Contact Us">Nous Contacter</h1>
+            <p class="animate-fadeInUp" data-fr="Vous avez des questions ? Nous sommes ici pour vous aider." data-en="Have questions? We're here to help.">Vous avez des questions ? Nous sommes ici pour vous aider.</p>
         </div>
     </section>
 
     <main class="container">
         <div class="contact-main-grid">
             <!-- LEFT SIDE: CONTACT INFO -->
-            <section class="contact-info-section">
-                <h2 class="section-title">Informations de Contact</h2>
+            <section class="contact-info-section scroll-reveal">
+                <h2 class="section-title" data-fr="Informations de Contact" data-en="Contact Information">Informations de Contact</h2>
                 
                 <div class="contact-info-card">
                     <div class="info-icon">📍</div>
                     <div class="info-content">
-                        <h3>Adresse</h3>
-                        <p>
+                        <h3 data-fr="Adresse" data-en="Address">Adresse</h3>
+                        <p data-fr="Semi-Lycée Anacaona du Cap-Haitien<br>#2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti" data-en="Semi-Lycée Anacaona du Cap-Haitien<br>#2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haiti">
                             Semi-Lycée Anacaona du Cap-Haitien<br>
-                            Près de Fort Saint-Michel<br>
-                            Cap-Haitien, Haïti
+                            #2, Rue du Fort Saint Michel<br>
+                            Cap-Haïtien, Haïti
                         </p>
                     </div>
                 </div>
@@ -54,10 +67,11 @@
                 <div class="contact-info-card">
                     <div class="info-icon">📞</div>
                     <div class="info-content">
-                        <h3>Téléphone</h3>
+                        <h3 data-fr="Téléphone" data-en="Phone">Téléphone</h3>
                         <p>
-                            Direction: +509 47XX XXXX<br>
-                            Bureau Administratif: +509 47XX XXXX
+                            7866195621<br>
+                            +509 42629604<br>
+                            +509 43213720
                         </p>
                     </div>
                 </div>
@@ -65,7 +79,7 @@
                 <div class="contact-info-card">
                     <div class="info-icon">✉️</div>
                     <div class="info-content">
-                        <h3>Email</h3>
+                        <h3 data-fr="Email" data-en="Email">Email</h3>
                         <p>
                             <a href="mailto:info@slach.ht">info@slach.ht</a><br>
                             <a href="mailto:admissions@slach.ht">admissions@slach.ht</a>
@@ -76,8 +90,8 @@
                 <div class="contact-info-card">
                     <div class="info-icon">⏰</div>
                     <div class="info-content">
-                        <h3>Horaires</h3>
-                        <p>
+                        <h3 data-fr="Horaires" data-en="Hours">Horaires</h3>
+                        <p data-fr="<strong>Lundi - Vendredi:</strong> 6h00 - 22h00<br><strong>Samedi:</strong> 8h00 - 17h00<br><strong>Dimanche:</strong> Fermé" data-en="<strong>Monday - Friday:</strong> 6:00 AM - 10:00 PM<br><strong>Saturday:</strong> 8:00 AM - 5:00 PM<br><strong>Sunday:</strong> Closed">
                             <strong>Lundi - Vendredi:</strong> 6h00 - 22h00<br>
                             <strong>Samedi:</strong> 8h00 - 17h00<br>
                             <strong>Dimanche:</strong> Fermé
@@ -86,81 +100,85 @@
                 </div>
 
                 <div class="contact-departments">
-                    <h3>Départements Clés</h3>
+                    <h3 data-fr="Départements Clés" data-en="Key Departments">Départements Clés</h3>
                     <div class="department-item">
-                        <p><strong>Admissions & Inscriptions:</strong> admissions@slach.ht</p>
+                        <p><strong data-fr="Admissions & Inscriptions:" data-en="Admissions & Registration:">Admissions & Inscriptions:</strong> admissions@slach.ht</p>
                     </div>
                     <div class="department-item">
-                        <p><strong>Vie Scolaire:</strong> vie-scolaire@slach.ht</p>
+                        <p><strong data-fr="Vie Scolaire:" data-en="School Life:">Vie Scolaire:</strong> vie-scolaire@slach.ht</p>
                     </div>
                     <div class="department-item">
-                        <p><strong>Pédagogie:</strong> pedagogie@slach.ht</p>
+                        <p><strong data-fr="Pédagogie:" data-en="Pedagogy:">Pédagogie:</strong> pedagogie@slach.ht</p>
                     </div>
                     <div class="department-item">
-                        <p><strong>Partenariats & Donations:</strong> partenaires@slach.ht</p>
+                        <p><strong data-fr="Partenariats & Donations:" data-en="Partnerships & Donations:">Partenariats & Donations:</strong> partenaires@slach.ht</p>
                     </div>
                 </div>
             </section>
 
             <!-- RIGHT SIDE: CONTACT FORM -->
-            <section class="contact-form-section">
-                <h2 class="section-title">Formulaire de Contact</h2>
-                <form class="contact-form" id="contactForm">
+            <section class="contact-form-section scroll-reveal">
+                <h2 class="section-title" data-fr="Formulaire de Contact" data-en="Contact Form">Formulaire de Contact</h2>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xwvjekqz" method="POST">
                     <div class="form-group">
-                        <label for="name">Nom Complet *</label>
+                        <label for="name" data-fr="Nom Complet *" data-en="Full Name *">Nom Complet *</label>
                         <input 
                             type="text" 
                             id="name" 
                             name="name" 
                             required 
                             placeholder="Votre nom"
+                            data-fr-placeholder="Votre nom" data-en-placeholder="Your name"
                             class="form-input"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Adresse Email *</label>
+                        <label for="email" data-fr="Adresse Email *" data-en="Email Address *">Adresse Email *</label>
                         <input 
                             type="email" 
                             id="email" 
                             name="email" 
                             required 
                             placeholder="votre@email.com"
+                            data-fr-placeholder="votre@email.com" data-en-placeholder="your@email.com"
                             class="form-input"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Téléphone</label>
+                        <label for="phone" data-fr="Téléphone" data-en="Phone">Téléphone</label>
                         <input 
                             type="tel" 
                             id="phone" 
                             name="phone" 
                             placeholder="+509 XXXX XXXX"
+                            data-fr-placeholder="+509 XXXX XXXX" data-en-placeholder="+509 XXXX XXXX"
                             class="form-input"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="subject">Sujet *</label>
+                        <label for="subject" data-fr="Sujet *" data-en="Subject *">Sujet *</label>
                         <select id="subject" name="subject" required class="form-input">
-                            <option value="">-- Sélectionnez un sujet --</option>
-                            <option value="admission">Admission & Inscription</option>
-                            <option value="question">Question Générale</option>
-                            <option value="partenariat">Partenariat ou Donation</option>
-                            <option value="emploi">Opportunité d'Emploi</option>
-                            <option value="autre">Autre</option>
+                            <option value="" data-fr="-- Sélectionnez un sujet --" data-en="-- Select a subject --">-- Sélectionnez un sujet --</option>
+                            <option value="admission" data-fr="Admission & Inscription" data-en="Admission & Registration">Admission & Inscription</option>
+                            <option value="question" data-fr="Question Générale" data-en="General Question">Question Générale</option>
+                            <option value="partenariat" data-fr="Partenariat ou Donation" data-en="Partnership or Donation">Partenariat ou Donation</option>
+                            <option value="emploi" data-fr="Opportunité d'Emploi" data-en="Job Opportunity">Opportunité d'Emploi</option>
+                            <option value="autre" data-fr="Autre" data-en="Other">Autre</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Message *</label>
+                        <label for="message" data-fr="Message *" data-en="Message *">Message *</label>
                         <textarea 
                             id="message" 
                             name="message" 
                             required 
                             rows="6"
                             placeholder="Veuillez détailler votre message..."
+                            data-fr-placeholder="Veuillez détailler votre message..." data-en-placeholder="Please detail your message..."
                             class="form-input"
                         ></textarea>
                     </div>
@@ -172,26 +190,26 @@
                             name="terms" 
                             required
                         >
-                        <label for="terms" style="display: inline;">
+                        <label for="terms" style="display: inline;" data-fr="J'accepte que mes informations soient utilisées pour me contacter *" data-en="I agree that my information may be used to contact me *">
                             J'accepte que mes informations soient utilisées pour me contacter *
                         </label>
                     </div>
 
-                    <button type="submit" class="button button-primary" style="width: 100%;">
+                    <button type="submit" class="button button-primary" style="width: 100%;" data-fr="Envoyer le Message" data-en="Send Message">
                         Envoyer le Message
                     </button>
                 </form>
 
                 <div id="successMessage" class="success-message" style="display: none;">
-                    <p>✓ Merci! Votre message a été envoyé avec succès. Nous vous contacterons bientôt.</p>
+                    <p data-fr="✓ Merci! Votre message a été envoyé avec succès. Nous vous contacterons bientôt." data-en="✓ Thank you! Your message has been successfully sent. We will contact you soon.">✓ Merci! Votre message a été envoyé avec succès. Nous vous contacterons bientôt.</p>
                 </div>
             </section>
         </div>
 
         <!-- MAP SECTION -->
-        <section class="map-section">
-            <h2 class="section-title">Localisation</h2>
-            <p style="margin-bottom: 2rem; text-align: center; color: #666;">
+        <section class="map-section scroll-reveal">
+            <h2 class="section-title" data-fr="Localisation" data-en="Location">Localisation</h2>
+            <p style="margin-bottom: 2rem; text-align: center; color: #666;" data-fr="Semi-Lycée Anacaona du Cap-Haitien se situe près de Fort Saint-Michel au cœur du Cap-Haitien" data-en="Semi-Lycée Anacaona du Cap-Haitien is located near Fort Saint-Michel in the heart of Cap-Haitien">
                 Semi-Lycée Anacaona du Cap-Haitien se situe près de Fort Saint-Michel au cœur du Cap-Haitien
             </p>
             <div class="map-container">
@@ -208,16 +226,16 @@
         </section>
 
         <!-- FAQ SECTION -->
-        <section class="faq-section" style="margin: 4rem 0;">
-            <h2 class="section-title">Questions Fréquemment Posées</h2>
+        <section class="faq-section scroll-reveal" style="margin: 4rem 0;">
+            <h2 class="section-title" data-fr="Questions Fréquemment Posées" data-en="Frequently Asked Questions">Questions Fréquemment Posées</h2>
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Comment puis-je inscrire mon enfant à SLACH?</span>
+                        <span data-fr="Comment puis-je inscrire mon enfant à SLACH?" data-en="How can I enroll my child at SLACH?">Comment puis-je inscrire mon enfant à SLACH?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p>
+                        <p data-fr="Pour inscrire votre enfant, veuillez contacter notre bureau d'admissions. Nous accueillons les enfants de tous les horizons, indépendamment de leur situation économique. Vous devrez remplir un formulaire d'admission et discuter des besoins spécifiques de votre enfant." data-en="To enroll your child, please contact our admissions office. We welcome children from all backgrounds, regardless of their economic situation. You will need to complete an admissions form and discuss your child's specific needs.">
                             Pour inscrire votre enfant, veuillez contacter notre bureau d'admissions. 
                             Nous accueillons les enfants de tous les horizons, indépendamment de leur situation économique. 
                             Vous devrez remplir un formulaire d'admission et discuter des besoins spécifiques de votre enfant.
@@ -227,11 +245,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Y a-t-il des frais de scolarité?</span>
+                        <span data-fr="Y a-t-il des frais de scolarité?" data-en="Are there any tuition fees?">Y a-t-il des frais de scolarité?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p>
+                        <p data-fr="SLACH offre une éducation gratuite ou à très faible coût pour tous. Nous croyons que l'éducation est un droit, pas un privilège. Les frais varient selon les capacités de la famille, et aucun enfant n'est refusé pour des raisons financières." data-en="SLACH offers free or very low-cost education for all. We believe education is a right, not a privilege. Fees vary based on family capacity, and no child is turned away for financial reasons.">
                             SLACH offre une éducation gratuite ou à très faible coût pour tous. 
                             Nous croyons que l'éducation est un droit, pas un privilège. 
                             Les frais varient selon les capacités de la famille, et aucun enfant n'est refusé pour des raisons financières.
@@ -241,11 +259,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Quels sont les trois horaires?</span>
+                        <span data-fr="Quels sont les trois horaires?" data-en="What are the three schedules?">Quels sont les trois horaires?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p>
+                        <p data-fr="Nous offrons trois horaires : le matin (7h-12h30), l'après-midi (13h-18h) et le soir (18h30-21h30). Chaque horaire propose un programme académique complet. Vous pouvez choisir celui qui convient le mieux aux besoins de votre enfant." data-en="We offer three schedules: morning (7-12:30 PM), afternoon (1-6 PM), and evening (6:30-9:30 PM). Each schedule offers a complete academic program. You can choose the one that best suits your child's needs.">
                             Nous offrons trois horaires : le matin (7h-12h30), l'après-midi (13h-18h) et le soir (18h30-21h30). 
                             Chaque horaire propose un programme académique complet. Vous pouvez choisir celui qui convient le mieux 
                             aux besoins de votre enfant.
@@ -255,11 +273,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>SLACH accepte-t-elle les enfants sans papiers?</span>
+                        <span data-fr="SLACH accepte-t-elle les enfants sans papiers?" data-en="Does SLACH accept undocumented children?">SLACH accepte-t-elle les enfants sans papiers?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p>
+                        <p data-fr="Oui, absolument. SLACH accueille les enfants sans papiers, orphelins et réfugiés. Nous nous engageons à fournir l'éducation à ceux qui en ont le plus besoin. Le statut de papiers n'est jamais une barrière à l'admission à SLACH." data-en="Yes, absolutely. SLACH welcomes undocumented children, orphans, and refugees. We are committed to providing education to those who need it most. Documentation status is never a barrier to admission at SLACH.">
                             Oui, absolument. SLACH accueille les enfants sans papiers, orphelins et réfugiés. 
                             Nous nous engageons à fournir l'éducation à ceux qui en ont le plus besoin. 
                             Le statut de papiers n'est jamais une barrière à l'admission à SLACH.
@@ -269,11 +287,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Comment puis-je soutenir SLACH?</span>
+                        <span data-fr="Comment puis-je soutenir SLACH?" data-en="How can I support SLACH?">Comment puis-je soutenir SLACH?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p>
+                        <p data-fr="Il y a plusieurs façons de soutenir notre mission : par des donations, des bénévolats, des partenariats institutionnels, ou en partageant notre vision. Contactez notre département des partenaires pour discuter des options : partenaires@slach.ht" data-en="There are several ways to support our mission: through donations, volunteering, institutional partnerships, or by sharing our vision. Contact our partnerships department to discuss options: partenaires@slach.ht">
                             Il y a plusieurs façons de soutenir notre mission : par des donations, des bénévolats, 
                             des partenariats institutionnels, ou en partageant notre vision. 
                             Contactez notre département des partenaires pour discuter des options : partenaires@slach.ht
@@ -283,11 +301,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Offrez-vous des activités parascolaires?</span>
+                        <span data-fr="Offrez-vous des activités parascolaires?" data-en="Do you offer extracurricular activities?">Offrez-vous des activités parascolaires?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p>
+                        <p data-fr="Oui, nous avons plusieurs clubs et activités : théâtre, sports, arts, technologie, musique et clubs de citoyenneté. Ces activités sont conçues pour enrichir l'expérience éducative et développer les talents de chaque élève." data-en="Yes, we have several clubs and activities: theater, sports, arts, technology, music, and citizenship clubs. These activities are designed to enrich the educational experience and develop each student's talents.">
                             Oui, nous avons plusieurs clubs et activités : théâtre, sports, arts, technologie, 
                             musique et clubs de citoyenneté. Ces activités sont conçues pour enrichir l'expérience éducative 
                             et développer les talents de chaque élève.
@@ -303,22 +321,37 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Semi-Lycée Anacaona du Cap-Haitien</h4>
-                    <p>© 2024 SLACH. Tous droits réservés.</p>
+                    <h4 data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
+                    <p data-fr="Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996." data-en="Inclusive and quality education for all children of Cap-Haitien since 1996.">Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996.</p>
+                    <p class="footer-motto" data-fr="\"Travail, Patrie, Dieu\" - Notre devise, notre engagement envers l'excellence et la nation." data-en="\"Work, Country, God\" - Our motto, our commitment to excellence and the nation.">"Travail, Patrie, Dieu" - Notre devise, notre engagement envers l'excellence et la nation.</p>
                 </div>
                 <div class="footer-section">
-                    <p class="footer-motto">
-                        <em>"Travail, Patrie, Dieu"</em> - Notre devise, notre engagement envers l'excellence et la nation.
-                    </p>
+                    <h4 data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+                    <a href="genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                    <a href="charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                    <a href="vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                    <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
                 </div>
                 <div class="footer-section">
-                    <a href="charter.html">Documents Officiels</a>
-                    <a href="contact.html">Nous Contacter</a>
+                    <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+                    <p data-fr="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti" data-en="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haiti">📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti</p>
+                    <p data-fr="📞 7866195621<br>+509 42629604<br>+509 43213720" data-en="📞 7866195621<br>+509 42629604<br>+509 43213720">📞 7866195621<br>+509 42629604<br>+509 43213720</p>
+                    <p>✉️ info@slach.ht</p>
                 </div>
+                <div class="footer-section">
+                    <h4 data-fr="Nos Valeurs" data-en="Our Values">Nos Valeurs</h4>
+                    <p data-fr="• Esprit Patriotique" data-en="• Patriotic Spirit">• Esprit Patriotique</p>
+                    <p data-fr="• Solidarité" data-en="• Solidarity">• Solidarité</p>
+                    <p data-fr="• Excellence Académique" data-en="• Academic Excellence">• Excellence Académique</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-fr="© 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona du Cap-Haitien. All rights reserved.">&copy; 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

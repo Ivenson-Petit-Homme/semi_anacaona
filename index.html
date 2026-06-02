@@ -7,6 +7,86 @@
     <title>SLACH - Semi-Lycée Anacaona du Cap-Haitien</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Image Carousel */
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin: 2rem 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: calc(300px * 12);
+            animation: scroll 30s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-slide {
+            min-width: 300px;
+            height: 200px;
+            margin: 0 10px;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Team Cards Animation */
+        .team-card {
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Scroll Reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER & NAVIGATION -->
@@ -15,26 +95,31 @@
             <div class="logo-section">
                 <img src="assets/images/LOGO1.jpeg" alt="Logo SLACH" class="logo">
             </div>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
+                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
-                <a href="index.html" class="nav-link active">Accueil</a>
-                <a href="pages/genese.html" class="nav-link">La Genèse</a>
-                <a href="pages/charter.html" class="nav-link">Charte & Règlements</a>
-                <a href="pages/vie-scolaire.html" class="nav-link">Vie Scolaire</a>
-                <a href="pages/contact.html" class="nav-link">Contact</a>
+                <a href="index.html" class="nav-link active" data-fr="Accueil" data-en="Home">Accueil</a>
+                <a href="pages/genese.html" class="nav-link" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                <a href="pages/charter.html" class="nav-link" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                <a href="pages/vie-scolaire.html" class="nav-link" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                <a href="pages/contact.html" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button">Nous Rejoindre</button>
+            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section class="hero animate-fadeInUp">
         <div class="hero-content">
-            <h1 class="hero-title">L'école qui s'impose</h1>
-            <p class="hero-subtitle">Une éducation inclusive au cœur du Cap-Haïtien</p>
-            <p class="hero-description">Depuis 1996, transformer la boue en bastion du savoir et restaurer la dignité par l'éducation.</p>
+            <h1 class="hero-title" data-fr="L'école qui s'impose" data-en="The school that stands out">L'école qui s'impose</h1>
+            <p class="hero-subtitle" data-fr="Une éducation inclusive au cœur du Cap-Haïtien" data-en="Inclusive education in the heart of Cap-Haïtien">Une éducation inclusive au cœur du Cap-Haïtien</p>
+            <p class="hero-description" data-fr="Depuis 1996, transformer la boue en bastion du savoir et restaurer la dignité par l'éducation." data-en="Since 1996, transforming mud into a bastion of knowledge and restoring dignity through education.">Depuis 1996, transformer la boue en bastion du savoir et restaurer la dignité par l'éducation.</p>
             <div class="hero-buttons">
-                <a href="pages/genese.html" class="button button-primary">Découvrir Notre Histoire</a>
-                <a href="pages/charter.html" class="button button-secondary">Voir le Règlement</a>
+                <a href="pages/genese.html" class="button button-primary" data-fr="Découvrir Notre Histoire" data-en="Discover Our History">Découvrir Notre Histoire</a>
+                <a href="pages/charter.html" class="button button-secondary" data-fr="Voir le Règlement" data-en="View the Rules">Voir le Règlement</a>
             </div>
         </div>
         <div class="hero-image">
@@ -42,19 +127,18 @@
         </div>
     </section>
 
-    <!-- WELCOME MESSAGE FROM DIRECTION -->
+    <!-- MISSION & PATRIOTISME -->
     <section class="welcome-section">
         <div class="container">
-            <h2 class="section-title">Bienvenue à SLACH</h2>
-            <div class="welcome-content">
-                <p class="welcome-text">
-                    Nous accueillons avec fierté chaque enfant qui franchit nos portes, indépendamment de son origine sociale ou économique. 
-                    À Semi-Lycée Anacaona du Cap-Haitien, nous croyons fermement que l'éducation est le droit fondamental de tout être humain. 
-                    Notre mission est de transformer les vies par une pédagogie inclusive, solidaire et exigeante.
+            <h2 class="section-title scroll-reveal" data-fr="Notre Mission" data-en="Our Mission">Notre Mission</h2>
+            <div class="welcome-content scroll-reveal">
+                <p class="welcome-text" data-fr="Mision nou nan lekòl Ayiti se fòme moun pou vin yon bagay itil pou peyi a menm nan lòt peyi. Nou mete espr patriyotik nan elev yo, renmen pwochen yo jan dwe, konpòte byen epi renmen peyi a." data-en="Our mission in the Haitian school is to train people to become useful to the country and to other countries. We instill a patriotic spirit in our students, love their neighbors as they should, behave well and love their country.">
+                    <strong>Mision nou nan lekòl Ayiti se fòme moun pou vin yon bagay itil pou peyi a menm nan lòt peyi.</strong> 
+                    Nou mete espr patriyotik nan elev yo, renmen pwochen yo jan dwe, konpòte byen epi renmen peyi a.
                 </p>
-                <p class="welcome-text">
-                    Depuis notre fondation en 1996, nous avons accueilli des milliers d'enfants orphelins, sans documents et des familles les plus démunies. 
-                    Aujourd'hui, avec trois horaires de scolarisation (matin, après-midi, soir), nous continuons à élargir notre impact dans la communauté du Cap-Haitien.
+                <p class="welcome-text" data-fr="Nou bay yon fòmasyon de kalite pwofesyonèl, rezilta leta yo. Nou travay pou timoun yo pase nan egzamen leta ofisyèl yo. Nou gen pwofesè de kalite ki konplo pou reyalize objektif sa yo." data-en="We provide quality professional education, state results. We work for students to pass official state exams. We have quality teachers committed to achieving these goals.">
+                    Nou bay yon fòmasyon de kalite pwofesyonèl, rezilta leta yo. Nou travay pou timoun yo pase nan egzamen leta ofisyèl yo.
+                    Nou gen pwofesè de kalite ki konplo pou reyalize objektif sa yo.
                 </p>
             </div>
         </div>
@@ -63,26 +147,207 @@
     <!-- KEY HIGHLIGHTS -->
     <section class="highlights-section">
         <div class="container">
-            <h2 class="section-title">Nos Points Forts</h2>
+            <h2 class="section-title scroll-reveal" data-fr="Nos Points Forts" data-en="Our Highlights">Nos Points Forts</h2>
             <div class="highlights-grid">
-                <div class="highlight-card">
+                <div class="highlight-card scroll-reveal">
                     <div class="highlight-icon">💻</div>
-                    <h3>Laboratoire Informatique Moderne</h3>
-                    <p>Dotée d'une infrastructure technologique avancée pour préparer nos élèves aux défis numériques du XXIe siècle.</p>
+                    <h3 data-fr="Laboratoire Informatique Moderne" data-en="Modern Computer Lab">Laboratoire Informatique Moderne</h3>
+                    <p data-fr="Dotée d'une infrastructure technologique avancée pour préparer nos élèves aux défis numériques du XXIe siècle." data-en="Equipped with advanced technological infrastructure to prepare our students for the digital challenges of the 21st century.">Dotée d'une infrastructure technologique avancée pour préparer nos élèves aux défis numériques du XXIe siècle.</p>
                 </div>
-                <div class="highlight-card">
+                <div class="highlight-card scroll-reveal">
                     <div class="highlight-icon">⏰</div>
-                    <h3>Trois Horaires de Scolarisation</h3>
-                    <p>Nous offrons des cours le matin, l'après-midi et en soirée pour accueillir tous les enfants, peu importe leurs contraintes.</p>
+                    <h3 data-fr="Trois Horaires de Scolarisation" data-en="Three School Schedules">Trois Horaires de Scolarisation</h3>
+                    <p data-fr="Nous offrons des cours le matin, l'après-midi et en soirée pour accueillir tous les enfants, peu importe leurs contraintes." data-en="We offer classes in the morning, afternoon and evening to welcome all children, regardless of their constraints.">Nous offrons des cours le matin, l'après-midi et en soirée pour accueillir tous les enfants, peu importe leurs contraintes.</p>
                 </div>
-                <div class="highlight-card">
+                <div class="highlight-card scroll-reveal">
                     <div class="highlight-icon">🏛️</div>
-                    <h3>Identité Culturelle Forte</h3>
-                    <p>Nommée en l'honneur d'Anacaona, cacique taïno symbole de résistance et de liberté, nos valeurs sont ancrées dans notre histoire.</p>
+                    <h3 data-fr="Identité Culturelle Forte" data-en="Strong Cultural Identity">Identité Culturelle Forte</h3>
+                    <p data-fr="Nommée en l'honneur d'Anacaona, cacique taïno symbole de résistance et de liberté, nos valeurs sont ancrées dans notre histoire." data-en="Named in honor of Anacaona, Taino cacique symbol of resistance and freedom, our values are rooted in our history.">Nommée en l'honneur d'Anacaona, cacique taïno symbole de résistance et de liberté, nos valeurs sont ancrées dans notre histoire.</p>
                 </div>
             </div>
-            <div class="highlights-image">
-                <img src="assets/images/WhatsApp Image 2025-11-25 at 1.15.02 PM.jpeg" alt="Mur de l'école avec le nom SLACH">
+        </div>
+    </section>
+
+    <!-- GALERIE D'IMAGES (ANIMATION) -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title scroll-reveal" data-fr="Notre Galerie" data-en="Our Gallery">Notre Galerie</h2>
+            <div class="carousel-container scroll-reveal">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.53 PM.jpeg" alt="Étudiants SLACH">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.54 PM (1).jpeg" alt="Cour de récréation">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.55 PM.jpeg" alt="Salle informatique">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.57 PM.jpeg" alt="Salle de classe">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.15.02 PM.jpeg" alt="Mur de l'école">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM (1).jpeg" alt="Étudiants en uniforme">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.53 PM.jpeg" alt="Étudiants SLACH">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.54 PM (1).jpeg" alt="Cour de récréation">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.55 PM.jpeg" alt="Salle informatique">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.57 PM.jpeg" alt="Salle de classe">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.15.02 PM.jpeg" alt="Mur de l'école">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM (1).jpeg" alt="Étudiants en uniforme">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTRE CAMPUS -->
+    <section style="background: #f9f9f9; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title scroll-reveal" data-fr="Notre Campus" data-en="Our Campus">Notre Campus</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="text-align: center;" class="scroll-reveal">
+                    <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.54 PM (1).jpeg" alt="Cour de l'école" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+                    <h3 style="color: #3D8B46; margin-bottom: 0.75rem;" data-fr="Cour de Récréation" data-en="Playground">Cour de Récréation</h3>
+                    <p style="color: #666; line-height: 1.7;" data-fr="Un espace sécurisé pour que les élèves puissent jouer et se détendre entre les cours." data-en="A safe space for students to play and relax between classes.">Un espace sécurisé pour que les élèves puissent jouer et se détendre entre les cours.</p>
+                </div>
+                <div style="text-align: center;" class="scroll-reveal">
+                    <img src="assets/images/LAB.png" alt="Salle informatique" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+                    <h3 style="color: #3D8B46; margin-bottom: 0.75rem;" data-fr="Salle Informatique" data-en="Computer Lab">Salle Informatique</h3>
+                    <p style="color: #666; line-height: 1.7;" data-fr="Équipée de matériels modernes pour initier nos élèves aux technologies de l'information." data-en="Equipped with modern materials to introduce our students to information technology.">Équipée de matériels modernes pour initier nos élèves aux technologies de l'information.</p>
+                </div>
+                <div style="text-align: center;" class="scroll-reveal">
+                    <img src="assets/images/WhatsApp Image 2025-11-25 at 1.14.57 PM.jpeg" alt="Salle de classe" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+                    <h3 style="color: #3D8B46; margin-bottom: 0.75rem;" data-fr="Salles de Classe" data-en="Classrooms">Salles de Classe</h3>
+                    <p style="color: #666; line-height: 1.7;" data-fr="Des espaces lumineux et confortables pour favoriser l'apprentissage et la concentration." data-en="Bright and comfortable spaces to promote learning and concentration.">Des espaces lumineux et confortables pour favoriser l'apprentissage et la concentration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉQUIPE FORMATEURS -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title scroll-reveal" data-fr="Notre Équipe de Formateurs" data-en="Our Teaching Team">Notre Équipe de Formateurs</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="team-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="width: 100px; height: 100px; margin: 0 auto 1rem; background: #3D8B46; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                        👨‍💼
+                    </div>
+                    <h3 style="color: #3D8B46; margin-bottom: 0.5rem;" data-fr="Directeur" data-en="Director">Directeur</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-fr="Dirige et coordonne toutes les activités de l'école avec professionalism." data-en="Directs and coordinates all school activities with professionalism.">Dirige et coordonne toutes les activités de l'école avec professionalism.</p>
+                </div>
+                <div class="team-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="width: 100px; height: 100px; margin: 0 auto 1rem; background: #2d6534; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                        👨‍🏫
+                    </div>
+                    <h3 style="color: #3D8B46; margin-bottom: 0.5rem;" data-fr="Coordinateur" data-en="Coordinator">Coordinateur</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-fr="Assure la coordination pédagogique et le suivi des enseignements." data-en="Ensures pedagogical coordination and monitoring of teaching.">Assure la coordination pédagogique et le suivi des enseignements.</p>
+                </div>
+                <div class="team-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="width: 100px; height: 100px; margin: 0 auto 1rem; background: #5a9c5e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                        👮‍♂️
+                    </div>
+                    <h3 style="color: #3D8B46; margin-bottom: 0.5rem;" data-fr="Surveillant" data-en="Supervisor">Surveillant</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-fr="Veille à la sécurité et au bon comportement des élèves dans l'établissement." data-en="Ensures safety and good behavior of students in the institution.">Veille à la sécurité et au bon comportement des élèves dans l'établissement.</p>
+                </div>
+                <div class="team-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center;">
+                    <div style="width: 100px; height: 100px; margin: 0 auto 1rem; background: #3D8B46; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                        👩‍🏫
+                    </div>
+                    <h3 style="color: #3D8B46; margin-bottom: 0.5rem;" data-fr="Professeurs Qualifiés" data-en="Qualified Teachers">Professeurs Qualifiés</h3>
+                    <p style="color: #666; font-size: 0.95rem;" data-fr="Des enseignants expérimentés et passionnés par l'éducation des jeunes." data-en="Experienced teachers passionate about educating young people.">Des enseignants expérimentés et passionnés par l'éducation des jeunes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVITÉS INTELLECTUELLES -->
+    <section style="background: #f9f9f9; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title scroll-reveal" data-fr="Nos Activités Intellectuelles" data-en="Our Intellectual Activities">Nos Activités Intellectuelles</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #3D8B46;">
+                    <h3 style="color: #3D8B46; margin-bottom: 1rem;" data-fr="📚 Débat & Conférence" data-en="📚 Debate & Conference">📚 Débat & Conférence</h3>
+                    <p style="color: #666;" data-fr="Organisation de débats et conférences pour développer l'esprit critique des élèves." data-en="Organization of debates and conferences to develop students' critical thinking.">Organisation de débats et conférences pour développer l'esprit critique des élèves.</p>
+                </div>
+                <div class="scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #2d6534;">
+                    <h3 style="color: #3D8B46; margin-bottom: 1rem;" data-fr="🏆 Concours Académiques" data-en="🏆 Academic Competitions">🏆 Concours Académiques</h3>
+                    <p style="color: #666;" data-fr="Participation à des concours nationaux et internationaux pour motiver l'excellence." data-en="Participation in national and international competitions to motivate excellence.">Participation à des concours nationaux et internationaux pour motiver l'excellence.</p>
+                </div>
+                <div class="scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #5a9c5e;">
+                    <h3 style="color: #3D8B46; margin-bottom: 1rem;" data-fr="✍️ Atelier d'Écriture" data-en="✍️ Writing Workshop">✍️ Atelier d'Écriture</h3>
+                    <p style="color: #666;" data-fr="Développement des compétences en rédaction et expression écrite." data-en="Development of writing and written expression skills.">Développement des compétences en rédaction et expression écrite.</p>
+                </div>
+                <div class="scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #3D8B46;">
+                    <h3 style="color: #3D8B46; margin-bottom: 1rem;" data-fr="🧠 Club de Sciences" data-en="🧠 Science Club">🧠 Club de Sciences</h3>
+                    <p style="color: #666;" data-fr="Expériences scientifiques et découverte des sciences expérimentales." data-en="Scientific experiments and discovery of experimental sciences.">Expériences scientifiques et découverte des sciences expérimentales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TÉMOIGNAGES ANCIENS ÉLÈVES -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title scroll-reveal" data-fr="Témoignages des Anciens Élèves" data-en="Testimonials from Former Students">Témoignages des Anciens Élèves</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="scroll-reveal" style="background: white; border-left: 4px solid #3D8B46; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <p style="color: #555; font-style: italic; line-height: 1.8; margin-bottom: 1.5rem;" data-fr="SLACH m'aprann renmen peyi mwen, konpòte byen epi travay di. Jodi a mwen yon pwofesyonèl nan domèn mwen." data-en="SLACH taught me to love my country, behave well and work hard. Today I am a professional in my field.">
+                        "SLACH m'aprann renmen peyi mwen, konpòte byen epi travay di. Jodi a mwen yon pwofesyonèl nan domèn mwen."
+                    </p>
+                    <p style="font-weight: bold; color: #3D8B46;" data-fr="— Jean-Baptiste, Ancien Élève" data-en="— Jean-Baptiste, Former Student">— Jean-Baptiste, Ancien Élève</p>
+                </div>
+                <div class="scroll-reveal" style="background: white; border-left: 4px solid #2d6534; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <p style="color: #555; font-style: italic; line-height: 1.8; margin-bottom: 1.5rem;" data-fr="Edukasyon mwen resevwa nan SLACH la te pèmèt mwen pase egzamen leta yo avèk siksè. Mwen rekonesan anpil." data-en="The education I received at SLACH allowed me to pass the state exams successfully. I am very grateful.">
+                        "Edukasyon mwen resevwa nan SLACH la te pèmèt mwen pase egzamen leta yo avèk siksè. Mwen rekonesan anpil."
+                    </p>
+                    <p style="font-weight: bold; color: #3D8B46;" data-fr="— Marie-Ange, Ancienne Élève" data-en="— Marie-Ange, Former Student">— Marie-Ange, Ancienne Élève</p>
+                </div>
+                <div class="scroll-reveal" style="background: white; border-left: 4px solid #5a9c5e; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <p style="color: #555; font-style: italic; line-height: 1.8; margin-bottom: 1.5rem;" data-fr="Espri patriyotik ke SLACH te mete nan mwen la ap gide mwen toujou. Mwen renmen peyi mwen, mwen renmen pwochen mwen." data-en="The patriotic spirit that SLACH instilled in me guides me always. I love my country, I love my neighbor.">
+                        "Espri patriyotik ke SLACH te mete nan mwen la ap gide mwen toujou. Mwen renmen peyi mwen, mwen renmen pwochen mwen."
+                    </p>
+                    <p style="font-weight: bold; color: #3D8B46;" data-fr="— Pierre, Ancien Élève" data-en="— Pierre, Former Student">— Pierre, Ancien Élève</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIQUES -->
+    <section style="background: linear-gradient(135deg, #3D8B46, #2d6534); padding: 4rem 0; color: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center;">
+                <div class="scroll-reveal">
+                    <div style="font-size: 3.5rem; font-weight: bold; margin-bottom: 0.5rem;">28+</div>
+                    <div style="font-size: 1.1rem; color: rgba(255,255,255,0.9);" data-fr="Années d'Existence" data-en="Years of Existence">Années d'Existence</div>
+                </div>
+                <div class="scroll-reveal">
+                    <div style="font-size: 3.5rem; font-weight: bold; margin-bottom: 0.5rem;">1000+</div>
+                    <div style="font-size: 1.1rem; color: rgba(255,255,255,0.9);" data-fr="Élèves Formés" data-en="Trained Students">Élèves Formés</div>
+                </div>
+                <div class="scroll-reveal">
+                    <div style="font-size: 3.5rem; font-weight: bold; margin-bottom: 0.5rem;">95%</div>
+                    <div style="font-size: 1.1rem; color: rgba(255,255,255,0.9);" data-fr="Réussite aux Examens" data-en="Exam Success">Réussite aux Examens</div>
+                </div>
+                <div class="scroll-reveal">
+                    <div style="font-size: 3.5rem; font-weight: bold; margin-bottom: 0.5rem;">100%</div>
+                    <div style="font-size: 1.1rem; color: rgba(255,255,255,0.9);" data-fr="Inclusion" data-en="Inclusion">Inclusion</div>
+                </div>
             </div>
         </div>
     </section>
@@ -92,18 +357,33 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Semi-Lycée Anacaona du Cap-Haitien</h4>
-                    <p>© 2024 SLACH. Tous droits réservés.</p>
+                    <h4 data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
+                    <p data-fr="Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996." data-en="Inclusive and quality education for all children of Cap-Haïtien since 1996.">Une éducation inclusive et de qualité pour tous les enfants du Cap-Haïtien depuis 1996.</p>
+                    <p class="footer-motto" data-fr="\"Travail, Patrie, Dieu\" - Notre devise, notre engagement envers l'excellence et la nation." data-en="\"Work, Country, God\" - Our motto, our commitment to excellence and the nation.">"Travail, Patrie, Dieu" - Notre devise, notre engagement envers l'excellence et la nation.</p>
                 </div>
                 <div class="footer-section">
-                    <p class="footer-motto">
-                        <em>"Travail, Patrie, Dieu"</em> - Notre devise, notre engagement envers l'excellence et la nation.
-                    </p>
+                    <h4 data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+                    <a href="pages/genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                    <a href="pages/charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                    <a href="pages/vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                    <a href="pages/contact.html" data-fr="Contact" data-en="Contact">Contact</a>
                 </div>
                 <div class="footer-section">
-                    <a href="pages/charter.html">Documents Officiels</a>
-                    <a href="pages/contact.html">Nous Contacter</a>
+                    <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+                    <p data-fr="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti" data-en="📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haiti">📍 #2, Rue du Fort Saint Michel<br>Cap-Haïtien, Haïti</p>
+                    <p data-fr="📞 7866195621<br>+509 42629604<br>+509 43213720" data-en="📞 7866195621<br>+509 42629604<br>+509 43213720">📞 7866195621<br>+509 42629604<br>+509 43213720</p>
+                    <p>✉️ info@slach.ht</p>
                 </div>
+                <div class="footer-section">
+                    <h4 data-fr="Nos Valeurs" data-en="Our Values">Nos Valeurs</h4>
+                    <p data-fr="• Esprit Patriotique" data-en="• Patriotic Spirit">• Esprit Patriotique</p>
+                    <p data-fr="• Solidarité" data-en="• Solidarity">• Solidarité</p>
+                    <p data-fr="• Excellence Académique" data-en="• Academic Excellence">• Excellence Académique</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-fr="© 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona du Cap-Haitien. All rights reserved.">&copy; 2024 Semi-Lycée Anacaona du Cap-Haitien. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
