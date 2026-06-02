@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - SLACH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="LOGO1.jpeg" alt="Logo SLACH" class="logo">
+            </div>
+            <nav class="navbar">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="genese.html" class="nav-link">La Genèse</a>
+                <a href="charter.html" class="nav-link">Charte & Règlements</a>
+                <a href="vie-scolaire.html" class="nav-link">Vie Scolaire</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </nav>
+            <button class="cta-button">Nous Rejoindre</button>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Nous Contacter</h1>
+            <p>Vous avez des questions ? Nous sommes ici pour vous aider.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="contact-main-grid">
+            <!-- LEFT SIDE: CONTACT INFO -->
+            <section class="contact-info-section">
+                <h2 class="section-title">Informations de Contact</h2>
+                
+                <div class="contact-info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-content">
+                        <h3>Adresse</h3>
+                        <p>
+                            Semi-Lycée Anacaona du Cap-Haitien<br>
+                            Près de Fort Saint-Michel<br>
+                            Cap-Haitien, Haïti
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="info-icon">📞</div>
+                    <div class="info-content">
+                        <h3>Téléphone</h3>
+                        <p>
+                            Direction: +509 47XX XXXX<br>
+                            Bureau Administratif: +509 47XX XXXX
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:info@slach.ht">info@slach.ht</a><br>
+                            <a href="mailto:admissions@slach.ht">admissions@slach.ht</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-content">
+                        <h3>Horaires</h3>
+                        <p>
+                            <strong>Lundi - Vendredi:</strong> 6h00 - 22h00<br>
+                            <strong>Samedi:</strong> 8h00 - 17h00<br>
+                            <strong>Dimanche:</strong> Fermé
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-departments">
+                    <h3>Départements Clés</h3>
+                    <div class="department-item">
+                        <p><strong>Admissions & Inscriptions:</strong> admissions@slach.ht</p>
+                    </div>
+                    <div class="department-item">
+                        <p><strong>Vie Scolaire:</strong> vie-scolaire@slach.ht</p>
+                    </div>
+                    <div class="department-item">
+                        <p><strong>Pédagogie:</strong> pedagogie@slach.ht</p>
+                    </div>
+                    <div class="department-item">
+                        <p><strong>Partenariats & Donations:</strong> partenaires@slach.ht</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT SIDE: CONTACT FORM -->
+            <section class="contact-form-section">
+                <h2 class="section-title">Formulaire de Contact</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom Complet *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            placeholder="Votre nom"
+                            class="form-input"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse Email *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            placeholder="votre@email.com"
+                            class="form-input"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="+509 XXXX XXXX"
+                            class="form-input"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet *</label>
+                        <select id="subject" name="subject" required class="form-input">
+                            <option value="">-- Sélectionnez un sujet --</option>
+                            <option value="admission">Admission & Inscription</option>
+                            <option value="question">Question Générale</option>
+                            <option value="partenariat">Partenariat ou Donation</option>
+                            <option value="emploi">Opportunité d'Emploi</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            required 
+                            rows="6"
+                            placeholder="Veuillez détailler votre message..."
+                            class="form-input"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input 
+                            type="checkbox" 
+                            id="terms" 
+                            name="terms" 
+                            required
+                        >
+                        <label for="terms" style="display: inline;">
+                            J'accepte que mes informations soient utilisées pour me contacter *
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button button-primary" style="width: 100%;">
+                        Envoyer le Message
+                    </button>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <p>✓ Merci! Votre message a été envoyé avec succès. Nous vous contacterons bientôt.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- MAP SECTION -->
+        <section class="map-section">
+            <h2 class="section-title">Localisation</h2>
+            <p style="margin-bottom: 2rem; text-align: center; color: #666;">
+                Semi-Lycée Anacaona du Cap-Haitien se situe près de Fort Saint-Michel au cœur du Cap-Haitien
+            </p>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3755.0404329999997!2d-72.20347872346889!3d19.75419542032571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb1a5c5c5c5c5c5%3A0x0!2sFort%20Saint-Michel%2C%20Cap-Ha%C3%AFtien!5e0!3m2!1sfr!2sht!4v1234567890" 
+                    width="100%" 
+                    height="500" 
+                    style="border: none; border-radius: 8px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="faq-section" style="margin: 4rem 0;">
+            <h2 class="section-title">Questions Fréquemment Posées</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Comment puis-je inscrire mon enfant à SLACH?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none;">
+                        <p>
+                            Pour inscrire votre enfant, veuillez contacter notre bureau d'admissions. 
+                            Nous accueillons les enfants de tous les horizons, indépendamment de leur situation économique. 
+                            Vous devrez remplir un formulaire d'admission et discuter des besoins spécifiques de votre enfant.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Y a-t-il des frais de scolarité?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none;">
+                        <p>
+                            SLACH offre une éducation gratuite ou à très faible coût pour tous. 
+                            Nous croyons que l'éducation est un droit, pas un privilège. 
+                            Les frais varient selon les capacités de la famille, et aucun enfant n'est refusé pour des raisons financières.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quels sont les trois horaires?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none;">
+                        <p>
+                            Nous offrons trois horaires : le matin (7h-12h30), l'après-midi (13h-18h) et le soir (18h30-21h30). 
+                            Chaque horaire propose un programme académique complet. Vous pouvez choisir celui qui convient le mieux 
+                            aux besoins de votre enfant.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>SLACH accepte-t-elle les enfants sans papiers?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none;">
+                        <p>
+                            Oui, absolument. SLACH accueille les enfants sans papiers, orphelins et réfugiés. 
+                            Nous nous engageons à fournir l'éducation à ceux qui en ont le plus besoin. 
+                            Le statut de papiers n'est jamais une barrière à l'admission à SLACH.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Comment puis-je soutenir SLACH?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none;">
+                        <p>
+                            Il y a plusieurs façons de soutenir notre mission : par des donations, des bénévolats, 
+                            des partenariats institutionnels, ou en partageant notre vision. 
+                            Contactez notre département des partenaires pour discuter des options : partenaires@slach.ht
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Offrez-vous des activités parascolaires?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none;">
+                        <p>
+                            Oui, nous avons plusieurs clubs et activités : théâtre, sports, arts, technologie, 
+                            musique et clubs de citoyenneté. Ces activités sont conçues pour enrichir l'expérience éducative 
+                            et développer les talents de chaque élève.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Semi-Lycée Anacaona du Cap-Haitien</h4>
+                    <p>© 2024 SLACH. Tous droits réservés.</p>
+                </div>
+                <div class="footer-section">
+                    <p class="footer-motto">
+                        <em>"Travail, Patrie, Dieu"</em> - Notre devise, notre engagement envers l'excellence et la nation.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <a href="charter.html">Documents Officiels</a>
+                    <a href="contact.html">Nous Contacter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
