@@ -167,7 +167,7 @@ a:hover {
 .header {
     background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(255, 255, 255, 1));
     box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
-    position: sticky;
+    position: relative;  /* CHANGE: sticky → relative */
     top: 0;
     z-index: 100;
 }
@@ -275,7 +275,8 @@ a:hover {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xxl);
     align-items: center;
-    padding: var(--spacing-xxl) 0;
+    /* Nou chanje 0 a pa 5% oswa yon ti spacing pou tèks la pa janm kole nan rebò yo */
+    padding: var(--spacing-xxl) 5%; 
     background: linear-gradient(135deg, rgba(46,125,50,0.08) 0%, rgba(76,175,80,0.05) 100%);
 }
 
