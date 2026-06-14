@@ -7,24 +7,403 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .scroll-reveal { 
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: all 0.8s ease; 
+        }
+        
+        .scroll-reveal.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        /* Header */
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 100px;
+            height: auto;
+            max-height: 80px;
+            object-fit: contain;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            color: #333;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #3D8B46;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, background 0.3s ease;
+            padding: 5px 12px;
+            border-radius: 8px;
+            line-height: 1;
+        }
+        
+        .lang-btn:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+        
+        .lang-btn.active {
+            background-color: #2d6a4f;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Page Title avec Background Photo - HAUTEUR PI LONGE */
+        .page-title-section {
+            background: linear-gradient(135deg, rgba(45, 106, 79, 0.85), rgba(27, 77, 62, 0.9)), url('../assets/images/WhatsApp Image 2025-11-25 at 1.15.02 PM.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 2rem;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-title-section .container {
+            width: 100%;
+        }
+        
+        .page-title-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .page-title-section p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Charter Container */
+        .charter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        /* Side Navigation */
+        .side-navigation {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .charter-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .charter-nav .nav-item {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .charter-nav .nav-item:hover {
+            background-color: #2d6a4f;
+            color: white;
+        }
+        
+        /* Main Content */
+        .charter-content {
+            flex: 1;
+        }
+        
+        .charter-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .charter-section h2 {
+            color: #2d6a4f;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #2d6a4f;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .charter-section h3 {
+            color: #1b4d3e;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .charter-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-box {
+            background: #e8f5e9;
+            border-left: 4px solid #2d6a4f;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        .values-grid, .schedules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .value-item, .schedule-item, .principle {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .value-item:hover, .schedule-item:hover, .principle:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-item h3, .schedule-item h3, .principle h4 {
+            color: #2d6a4f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .charter-list {
+            margin: 1rem 0 1rem 2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .charter-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .pedagogical-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .scroll-top-btn:hover {
+            background-color: #1b4d3e;
+            transform: scale(1.1);
+        }
+        
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                width: 70px;
+                max-height: 60px;
+            }
+            .navbar {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .navbar.active {
+                display: flex;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .header-container {
+                padding: 0.5rem 1rem;
+            }
+            .charter-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .side-navigation {
+                width: 100%;
+                position: relative;
+                top: 0;
+                overflow-x: auto;
+            }
+            .charter-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .page-title-section {
+                padding: 5rem 1rem;
+                min-height: 350px;
+            }
+            .page-title-section h1 {
+                font-size: 2rem;
+            }
+            .page-title-section p {
+                font-size: 1.1rem;
+            }
+            .lang-btn {
+                font-size: 1rem;
+                padding: 3px 8px;
+            }
+            .scroll-top-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lang-btn {
+                font-size: 0.9rem;
+                padding: 2px 6px;
+            }
+            .logo {
+                width: 55px;
+                max-height: 50px;
+            }
+            .charter-section {
+                padding: 1.5rem;
+            }
+            .charter-section h2 {
+                font-size: 1.4rem;
+            }
+            .page-title-section {
+                padding: 4rem 1rem;
+                min-height: 280px;
+            }
+            .page-title-section h1 {
+                font-size: 1.6rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- HEADER & NAVIGATION -->
+    <!-- HEADER & NAVIGATION - PA FIX -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
                 <img src="../assets/images/LOGO1-removebg-preview.png" alt="Logo SLACH" class="logo">
             </div>
             <div class="language-switcher">
-                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
-                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
@@ -34,11 +413,10 @@
                 <a href="vie-scolaire.html" class="nav-link" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
                 <a href="contact.html" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
-    <!-- PAGE TITLE -->
+    <!-- PAGE TITLE AVEC BACKGROUND FOTO VÈT - HAUTEUR PI LONGE -->
     <section class="page-title-section">
         <div class="container">
             <h1 class="animate-fadeInUp" data-fr="Textes Constitutifs & Règlements" data-en="Constituent Texts & Rules">Textes Constitutifs & Règlements</h1>
@@ -57,7 +435,6 @@
                 <a href="#pedagogie" class="nav-item" data-fr="Organisation Pédagogique" data-en="Pedagogical Organization">Organisation Pédagogique</a>
                 <a href="#horaires" class="nav-item" data-fr="Trois Horaires" data-en="Three Schedules">Trois Horaires</a>
                 <a href="#evaluation" class="nav-item" data-fr="Évaluation & Discipline" data-en="Evaluation & Discipline">Évaluation & Discipline</a>
-                <a href="#download" class="nav-item" data-fr="Télécharger" data-en="Download">Télécharger</a>
             </nav>
         </aside>
 
@@ -278,86 +655,168 @@
                     </p>
                 </div>
             </section>
-
-            <!-- SECTION: DOWNLOAD -->
-            <section id="download" class="charter-section download-section scroll-reveal">
-                <h2 data-fr="Document Complet" data-en="Complete Document">Document Complet</h2>
-                <p data-fr="Pour accéder à la version complète et détaillée de notre charte et de tous nos règlements, veuillez télécharger le document officiel ci-dessous :" data-en="To access the complete and detailed version of our charter and all our rules, please download the official document below:">
-                    Pour accéder à la version complète et détaillée de notre charte et de tous nos règlements, 
-                    veuillez télécharger le document officiel ci-dessous :
-                </p>
-                <div class="download-box">
-                    <div class="download-icon">📄</div>
-                    <div class="download-info">
-                        <h3>JARDINIER2.pdf</h3>
-                        <p data-fr="Document complet des textes constitutifs, charte des élèves et règlement intérieur de SLACH" data-en="Complete document of constituent texts, student charter and SLACH internal regulations">Document complet des textes constitutifs, charte des élèves et règlement intérieur de SLACH</p>
-                    </div>
-                    <a href="../documents/JARDINIER2.pdf" class="button button-primary" download data-fr="Télécharger le PDF" data-en="Download the PDF">
-                        Télécharger le PDF
-                    </a>
-                </div>
-            </section>
         </main>
     </div>
 
-   <!-- FOOTER -->
-<footer class="footer" style="padding: 2rem 0; font-size: 0.9rem;">
-    <div class="container">
-        <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
-            
-            <!-- TI MO PREZANTASYON AN -->
-            <div class="footer-section">
-                <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
-                <p style="margin: 0; line-height: 1.5; opacity: 0.9;" data-fr="Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain." data-en="Inclusive and quality education since 1996, shaping the citizens of tomorrow.">Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain.</p>
-            </div>
+    <!-- FOOTER - NWA (NOIR FONCÉ) -->
+    <footer class="footer" style="padding: 2rem 0; font-size: 0.9rem; background: #000000; color: white;">
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
+                    <p style="margin: 0; line-height: 1.5; opacity: 0.9;" data-fr="Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain." data-en="Inclusive and quality education since 1996, shaping the citizens of tomorrow.">Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain.</p>
+                </div>
 
-            <!-- LIENS RAPIDES -->
-            <div class="footer-section">
-                <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
-                <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-                    <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
-                    <a href="genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
-                    <a href="charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
-                    <a href="vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
-                    <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <a href="../index.html" style="color: white; text-decoration: none;" data-fr="Accueil" data-en="Home">Accueil</a>
+                        <a href="genese.html" style="color: white; text-decoration: none;" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                        <a href="charter.html" style="color: white; text-decoration: none;" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                        <a href="vie-scolaire.html" style="color: white; text-decoration: none;" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                        <a href="contact.html" style="color: white; text-decoration: none;" data-fr="Contact" data-en="Contact">Contact</a>
+                    </div>
                 </div>
+                
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Contact" data-en="Contact">Contact</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span data-fr="#2, Rue du Fort St Michel, Cap-Haïtien" data-en="#2, Rue du Fort St Michel, Cap-Haitien">#2, Rue du Fort St Michel, Cap-Haïtien</span>
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            786-619-5621
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +509 4262-9604
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +509 4321-3720
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span data-fr="arcelynpierre2@gmail.com" data-en="arcelynpierre2@gmail.com">arcelynpierre2@gmail.com</span>
+                        </p>
+                    </div>
+                </div>
+                
             </div>
             
-            <!-- CONTACT INFOS -->
-            <div class="footer-section">
-                <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Contact" data-en="Contact">Contact</h4>
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <!-- Adrès -->
-                    <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <a href="https://maps.google.com/?q=Rue+du+Fort+Saint+Michel,+Cap-Haitien,+Haiti" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;" data-fr="#2, Rue du Fort St Michel, Cap-Haïtien" data-en="#2, Rue du Fort St Michel, Cap-Haitien">#2, Rue du Fort St Michel, Cap-Haïtien</a>
-                    </p>
-                    <!-- Telefòn Lekòl la -->
-                    <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <a href="tel:7866195621" style="text-decoration: none; color: inherit;">786-619-5621</a> | 
-                        <a href="tel:+50942629604" style="text-decoration: none; color: inherit;">+509 4262-9604</a>
-                    </p>
-                    <!-- Imel Lekòl la -->
-                    <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <a href="mailto:info@slach.ht" style="text-decoration: none; color: inherit;">info@slach.ht</a>
-                    </p>
-                </div>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; text-align: center; font-size: 0.8rem; opacity: 0.8; line-height: 1.6;">
+                <p data-fr="© 2024 Semi-Lycée Anacaona. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona. All rights reserved.">© 2024 Semi-Lycée Anacaona. Tous droits réservés.</p>
+                <p style="margin-top: 5px; color: rgba(255,255,255,0.7);">
+                    <span data-fr="Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : " data-en="Developed by: Ing. en Informatique Ivenson Petit-Homme | Tel: ">Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : </span>
+                    +509 4161-3156
+                </p>
             </div>
-            
         </div>
+    </footer>
+
+    <!-- BOUTON SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Remonte anlè">↑</button>
+
+    <script>
+        // ==================== TRADUCTION FR/EN ====================
+        let currentLang = 'fr';
         
-        <!-- COPYRIGHT AK SIGNATI IVENSON -->
-        <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; text-align: center; font-size: 0.8rem; opacity: 0.8; line-height: 1.6;">
-            <p data-fr="© 2024 Semi-Lycée Anacaona. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona. All rights reserved.">© 2024 Semi-Lycée Anacaona. Tous droits réservés.</p>
-            <p style="margin-top: 5px; color: rgba(255,255,255,0.7);">
-                <span data-fr="Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : " data-en="Developed by: Ing. en Informatique Ivenson Petit-Homme | Tel: ">Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : </span>
-                <a href="tel:+50941613156" style="color: inherit; text-decoration: underline;">+509 4161-3156</a>
-            </p>
-        </div>
-    </div>
-</footer>
-    <script src="../assets/js/script.js"></script>
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Tradiksyon pou tout eleman ki gen data-fr ak data-en
+            document.querySelectorAll('[data-fr][data-en]').forEach(element => {
+                if (lang === 'fr') {
+                    element.textContent = element.getAttribute('data-fr');
+                } else if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Mete ajou bouton aktif la
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Sove lang lan nan localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+        
+        // Evènman pou bouton lang yo
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+        
+        // Chaje dènye lang ki te itilize a
+        const savedLang = localStorage.getItem('preferred_language');
+        if (savedLang && (savedLang === 'fr' || savedLang === 'en')) {
+            switchLanguage(savedLang);
+        }
+        
+        // ==================== MENI MOBIL ====================
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const navbar = document.querySelector('.navbar');
+        if (toggleBtn && navbar) {
+            toggleBtn.addEventListener('click', function() {
+                navbar.classList.toggle('active');
+            });
+        }
+        
+        // Fèmen meni lè yon lyen klike
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbar.classList.contains('active')) {
+                    navbar.classList.remove('active');
+                }
+            });
+        });
+        
+        // ==================== SCROLL REVEAL ====================
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        function checkReveal() {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        
+        // ==================== SCROLL TO TOP ====================
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        function checkScroll() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', scrollToTop);
+        }
+    </script>
 </body>
 </html>

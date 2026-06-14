@@ -7,24 +7,427 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        
+        .scroll-reveal { 
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: all 0.8s ease; 
+        }
+        
+        .scroll-reveal.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        /* Header */
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 100px;
+            height: auto;
+            max-height: 80px;
+            object-fit: contain;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            color: #333;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #3D8B46;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, background 0.3s ease;
+            padding: 5px 12px;
+            border-radius: 8px;
+            line-height: 1;
+        }
+        
+        .lang-btn:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+        
+        .lang-btn.active {
+            background-color: #2d6a4f;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Featured Image Section avec Background Photo - GRADYAN PI LEJÈ */
+        .featured-image-section {
+            position: relative;
+            background: linear-gradient(135deg, rgba(45, 106, 79, 0.5), rgba(27, 77, 62, 0.6)), url('../assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM (1).jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .image-overlay-text {
+            color: white;
+            width: 100%;
+        }
+        
+        .image-overlay-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .image-overlay-text p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Section Styles */
+        .life-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            color: #2d6a4f;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #2d6a4f;
+            padding-left: 1rem;
+        }
+        
+        .section-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .section-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .content-highlight {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        .phases-grid, .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .phase-card, .activity-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .phase-card:hover, .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .phase-number {
+            width: 40px;
+            height: 40px;
+            background: #2d6a4f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .phase-card h4, .activity-card h3 {
+            color: #2d6a4f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase-card p, .activity-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        
+        .commandments-list {
+            margin: 1.5rem 0;
+        }
+        
+        .commandment-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .commandment-item:hover {
+            background: #e8f5e9;
+            transform: translateX(5px);
+        }
+        
+        .commandment-number {
+            width: 35px;
+            height: 35px;
+            background: #2d6a4f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .commandment-text h4 {
+            color: #2d6a4f;
+            margin-bottom: 0.25rem;
+        }
+        
+        .commandment-text p {
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .events-list {
+            margin: 1.5rem 0;
+        }
+        
+        .event-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #2d6a4f;
+        }
+        
+        .event-item h4 {
+            color: #2d6a4f;
+            margin-bottom: 0.25rem;
+        }
+        
+        .event-item p {
+            color: #666;
+            margin: 0;
+        }
+        
+        .infrastructure-intro {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .infrastructure-intro img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .scroll-top-btn:hover {
+            background-color: #1b4d3e;
+            transform: scale(1.1);
+        }
+        
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                width: 70px;
+                max-height: 60px;
+            }
+            .navbar {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .navbar.active {
+                display: flex;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .header-container {
+                padding: 0.5rem 1rem;
+            }
+            .featured-image-section {
+                padding: 5rem 1rem;
+                min-height: 350px;
+            }
+            .image-overlay-text h1 {
+                font-size: 2rem;
+            }
+            .image-overlay-text p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .lang-btn {
+                font-size: 1rem;
+                padding: 3px 8px;
+            }
+            .scroll-top-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            .commandment-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .commandment-number {
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lang-btn {
+                font-size: 0.9rem;
+                padding: 2px 6px;
+            }
+            .logo {
+                width: 55px;
+                max-height: 50px;
+            }
+            .featured-image-section {
+                padding: 4rem 1rem;
+                min-height: 280px;
+            }
+            .image-overlay-text h1 {
+                font-size: 1.6rem;
+            }
+            .section-content {
+                padding: 1.5rem;
+            }
+            .phase-card, .activity-card {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- HEADER & NAVIGATION -->
+    <!-- HEADER & NAVIGATION - PA FIX -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
                 <img src="../assets/images/LOGO1-removebg-preview.png" alt="Logo SLACH" class="logo">
             </div>
             <div class="language-switcher">
-                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
-                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
@@ -34,14 +437,12 @@
                 <a href="vie-scolaire.html" class="nav-link active" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
                 <a href="contact.html" class="nav-link" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
-    <!-- FEATURED IMAGE -->
-    <section class="featured-image-section">
-        <img src="../assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM (1).jpeg" alt="Nos élèves en uniforme vert et blanc">
-        <div class="image-overlay-text animate-fadeInUp">
+    <!-- FEATURED IMAGE SECTION AVEC BACKGROUND FOTO - GRADYAN PI LEJÈ -->
+    <section class="featured-image-section animate-fadeInUp">
+        <div class="image-overlay-text">
             <h1 data-fr="Vie Scolaire & Vie Étudiante" data-en="School Life & Student Life">Vie Scolaire & Vie Étudiante</h1>
             <p data-fr="L'expérience SLACH : Apprendre, Grandir, S'Épanouir" data-en="The SLACH experience: Learn, Grow, Thrive">L'expérience SLACH : Apprendre, Grandir, S'Épanouir</p>
         </div>
@@ -66,11 +467,11 @@
                     <p data-fr="L'auto-évaluation est au cœur de notre pédagogie. Les élèves apprennent à :" data-en="Self-assessment is at the heart of our pedagogy. Students learn to:">
                         <strong data-fr="L'auto-évaluation" data-en="Self-assessment">L'auto-évaluation</strong> est au cœur de notre pédagogie. Les élèves apprennent à :
                     </p>
-                    <ul style="margin-left: 1.5rem;">
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                         <li data-fr="Reconnaître leurs forces et leurs faiblesses" data-en="Recognize their strengths and weaknesses">Reconnaître leurs forces et leurs faiblesses</li>
                         <li data-fr="Fixer des objectifs personnels réalistes" data-en="Set realistic personal goals">Fixer des objectifs personnels réalistes</li>
                         <li data-fr="Mesurer leur propre progrès" data-en="Measure their own progress">Mesurer leur propre progrès</li>
-                        <li data-fr="Prendre responsibility de leur apprentissage" data-en="Take responsibility for their learning">Prendre responsibility de leur apprentissage</li>
+                        <li data-fr="Prendre responsabilité de leur apprentissage" data-en="Take responsibility for their learning">Prendre responsabilité de leur apprentissage</li>
                         <li data-fr="Réfléchir critiquement sur leur comportement éthique" data-en="Think critically about their ethical behavior">Réfléchir critiquement sur leur comportement éthique</li>
                     </ul>
                 </div>
@@ -184,28 +585,18 @@
                     </div>
                 </div>
 
-                <h3 style="margin-top: 3rem; color: #3D8B46;" data-fr="Suivi à la Maison" data-en="Home Monitoring">Suivi à la Maison</h3>
-                <p style="margin-top: 1rem;" data-fr="Les parents disposent d'outils de suivi réguliers :" data-en="Parents have regular monitoring tools:">
-                    Les parents disposent d'outils de suivi réguliers :
-                </p>
-                <ul style="margin-left: 1.5rem;">
-                    <li data-fr="Bulletins mensuels : Rapports détaillés sur les progrès académiques" data-en="Monthly Bulletins: Detailed reports on academic progress"><strong data-fr="Bulletins mensuels" data-en="Monthly Bulletins">Bulletins mensuels</strong> : Rapports détaillés sur les progrès académiques</li>
-                    <li data-fr="Carnet de liaison : Communication quotidienne entre école et maison" data-en="Contact Notebook: Daily communication between school and home"><strong data-fr="Carnet de liaison" data-en="Contact Notebook">Carnet de liaison</strong> : Communication quotidienne entre école et maison</li>
-                    <li data-fr="Réunions parents-enseignants : Au moins 3 par an" data-en="Parent-Teacher Meetings: At least 3 per year"><strong data-fr="Réunions parents-enseignants" data-en="Parent-Teacher Meetings">Réunions parents-enseignants</strong> : Au moins 3 par an</li>
-                    <li data-fr="Appels réguliers : Pour partager les succès et discuter des défis" data-en="Regular Calls: To share successes and discuss challenges"><strong data-fr="Appels réguliers" data-en="Regular Calls">Appels réguliers</strong> : Pour partager les succès et discuter des défis</li>
-                    <li data-fr="Accès en ligne : Plateforme pour consulter les notes et les annonces" data-en="Online Access: Platform to view grades and announcements"><strong data-fr="Accès en ligne" data-en="Online Access">Accès en ligne</strong> : Plateforme pour consulter les notes et les annonces</li>
-                </ul>
+                <!-- SUIVI À LA MAISON - RETIRE -->
             </div>
         </section>
 
         <!-- SECTION 3: INFRASTRUCTURES -->
         <section class="life-section scroll-reveal">
             <h2 class="section-title" data-fr="Nos Infrastructures" data-en="Our Infrastructure">Nos Infrastructures</h2>
-            <div class="infrastructure-intro">
-                <img src="../assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM.jpeg" alt="Bâtiment principal et installations SLACH" style="width: 100%; max-width: 600px; margin: 1.5rem 0; border-radius: 8px;">
-            </div>
-            
             <div class="section-content">
+                <div class="infrastructure-intro">
+                    <img src="../assets/images/WhatsApp Image 2025-11-25 at 1.15.04 PM.jpeg" alt="Bâtiment principal et installations SLACH">
+                </div>
+                
                 <h3 style="margin-top: 2rem; color: #3D8B46;" data-fr="Bâtiment Principal - Architecture Moderne" data-en="Main Building - Modern Architecture">Bâtiment Principal - Architecture Moderne</h3>
                 <p data-fr="Notre bâtiment principal de deux étages est construit pour accueillir confortablement nos trois horaires de cours. Chaque salle de classe est équipée de matériel pédagogique moderne et d'une ventilation adéquate." data-en="Our two-story main building is designed to comfortably accommodate our three class schedules. Each classroom is equipped with modern teaching materials and adequate ventilation.">
                     Notre bâtiment principal de deux étages est construit pour accueillir confortablement nos trois horaires 
@@ -217,7 +608,7 @@
                     SLACH dispose d'un laboratoire informatique moderne avec des ordinateurs connectés à Internet. 
                     Les élèves apprennent les compétences numériques essentielles pour le XXIe siècle :
                 </p>
-                <ul style="margin-left: 1.5rem;">
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                     <li data-fr="Traitement de texte et bureautique" data-en="Word processing and office automation">Traitement de texte et bureautique</li>
                     <li data-fr="Recherche en ligne et littératie numérique" data-en="Online research and digital literacy">Recherche en ligne et littératie numérique</li>
                     <li data-fr="Programmation introductive" data-en="Introductory programming">Programmation introductive</li>
@@ -230,7 +621,7 @@
                     Notre cour centrale dispose d'un terrain de basketball et d'espaces de récréation. 
                     L'éducation physique est importante à SLACH pour :
                 </p>
-                <ul style="margin-left: 1.5rem;">
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
                     <li data-fr="Développer la santé et le bien-être physique" data-en="Develop health and physical well-being">Développer la santé et le bien-être physique</li>
                     <li data-fr="Construire le travail en équipe et l'esprit de coopération" data-en="Build teamwork and cooperation spirit">Construire le travail en équipe et l'esprit de coopération</li>
                     <li data-fr="Offrir un espace de détente et de jeu" data-en="Offer a relaxation and play space">Offrir un espace de détente et de jeu</li>
@@ -324,64 +715,165 @@
         </section>
     </main>
 
-   <!-- FOOTER -->
-<footer class="footer" style="padding: 2rem 0; font-size: 0.9rem;">
-    <div class="container">
-        <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
-            
-            <!-- TI MO PREZANTASYON AN -->
-            <div class="footer-section">
-                <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
-                <p style="margin: 0; line-height: 1.5; opacity: 0.9;" data-fr="Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain." data-en="Inclusive and quality education since 1996, shaping the citizens of tomorrow.">Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain.</p>
-            </div>
+    <!-- FOOTER - NWA (NOIR FONCÉ) -->
+    <footer class="footer" style="padding: 2rem 0; font-size: 0.9rem; background: #000000; color: white;">
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
+                    <p style="margin: 0; line-height: 1.5; opacity: 0.9;" data-fr="Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain." data-en="Inclusive and quality education since 1996, shaping the citizens of tomorrow.">Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain.</p>
+                </div>
 
-            <!-- LIENS RAPIDES -->
-            <div class="footer-section">
-                <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
-                <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-                    <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
-                    <a href="genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
-                    <a href="charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
-                    <a href="vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
-                    <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <a href="../index.html" style="color: white; text-decoration: none;" data-fr="Accueil" data-en="Home">Accueil</a>
+                        <a href="genese.html" style="color: white; text-decoration: none;" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                        <a href="charter.html" style="color: white; text-decoration: none;" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                        <a href="vie-scolaire.html" style="color: white; text-decoration: none;" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                        <a href="contact.html" style="color: white; text-decoration: none;" data-fr="Contact" data-en="Contact">Contact</a>
+                    </div>
                 </div>
+                
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Contact" data-en="Contact">Contact</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span data-fr="#2, Rue du Fort St Michel, Cap-Haïtien" data-en="#2, Rue du Fort St Michel, Cap-Haitien">#2, Rue du Fort St Michel, Cap-Haïtien</span>
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            786-619-5621
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +509 4262-9604
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +509 4321-3720
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span data-fr="arcelynpierre2@gmail.com" data-en="arcelynpierre2@gmail.com">arcelynpierre2@gmail.com</span>
+                        </p>
+                    </div>
+                </div>
+                
             </div>
             
-            <!-- CONTACT INFOS -->
-            <div class="footer-section">
-                <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Contact" data-en="Contact">Contact</h4>
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <!-- Adrès -->
-                    <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <a href="https://maps.google.com/?q=Rue+du+Fort+Saint+Michel,+Cap-Haitien,+Haiti" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;" data-fr="#2, Rue du Fort St Michel, Cap-Haïtien" data-en="#2, Rue du Fort St Michel, Cap-Haitien">#2, Rue du Fort St Michel, Cap-Haïtien</a>
-                    </p>
-                    <!-- Telefòn Lekòl la -->
-                    <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <a href="tel:7866195621" style="text-decoration: none; color: inherit;">786-619-5621</a> | 
-                        <a href="tel:+50942629604" style="text-decoration: none; color: inherit;">+509 4262-9604</a>
-                    </p>
-                    <!-- Imel Lekòl la -->
-                    <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <a href="mailto:info@slach.ht" style="text-decoration: none; color: inherit;">info@slach.ht</a>
-                    </p>
-                </div>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; text-align: center; font-size: 0.8rem; opacity: 0.8; line-height: 1.6;">
+                <p data-fr="© 2024 Semi-Lycée Anacaona. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona. All rights reserved.">© 2024 Semi-Lycée Anacaona. Tous droits réservés.</p>
+                <p style="margin-top: 5px; color: rgba(255,255,255,0.7);">
+                    <span data-fr="Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : " data-en="Developed by: Ing. en Informatique Ivenson Petit-Homme | Tel: ">Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : </span>
+                    +509 4161-3156
+                </p>
             </div>
-            
         </div>
+    </footer>
+
+    <!-- BOUTON SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Remonte anlè">↑</button>
+
+    <script>
+        // ==================== TRADUCTION FR/EN ====================
+        let currentLang = 'fr';
         
-        <!-- COPYRIGHT AK SIGNATI IVENSON -->
-        <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; text-align: center; font-size: 0.8rem; opacity: 0.8; line-height: 1.6;">
-            <p data-fr="© 2024 Semi-Lycée Anacaona. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona. All rights reserved.">© 2024 Semi-Lycée Anacaona. Tous droits réservés.</p>
-            <p style="margin-top: 5px; color: rgba(255,255,255,0.7);">
-                <span data-fr="Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : " data-en="Developed by: Ing. en Informatique Ivenson Petit-Homme | Tel: ">Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : </span>
-                <a href="tel:+50941613156" style="color: inherit; text-decoration: underline;">+509 4161-3156</a>
-            </p>
-        </div>
-    </div>
-</footer>
-    <script src="../assets/js/script.js"></script>
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Tradiksyon pou tout eleman ki gen data-fr ak data-en
+            document.querySelectorAll('[data-fr][data-en]').forEach(element => {
+                if (lang === 'fr') {
+                    element.textContent = element.getAttribute('data-fr');
+                } else if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Mete ajou bouton aktif la
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Sove lang lan nan localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+        
+        // Evènman pou bouton lang yo
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+        
+        // Chaje dènye lang ki te itilize a
+        const savedLang = localStorage.getItem('preferred_language');
+        if (savedLang && (savedLang === 'fr' || savedLang === 'en')) {
+            switchLanguage(savedLang);
+        }
+        
+        // ==================== MENI MOBIL ====================
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const navbar = document.querySelector('.navbar');
+        if (toggleBtn && navbar) {
+            toggleBtn.addEventListener('click', function() {
+                navbar.classList.toggle('active');
+            });
+        }
+        
+        // Fèmen meni lè yon lyen klike
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbar.classList.contains('active')) {
+                    navbar.classList.remove('active');
+                }
+            });
+        });
+        
+        // ==================== SCROLL REVEAL ====================
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        function checkReveal() {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        
+        // ==================== SCROLL TO TOP ====================
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        function checkScroll() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', scrollToTop);
+        }
+    </script>
 </body>
 </html>

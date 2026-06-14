@@ -4,27 +4,502 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - SLACH</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=600;700;800&family=Open+Sans:wght=400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .scroll-reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        
+        .scroll-reveal { 
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: all 0.8s ease; 
+        }
+        
+        .scroll-reveal.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        /* Header */
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 100px;
+            height: auto;
+            max-height: 80px;
+            object-fit: contain;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            color: #333;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #3D8B46;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.2s ease, background 0.3s ease;
+            padding: 5px 12px;
+            border-radius: 8px;
+            line-height: 1;
+        }
+        
+        .lang-btn:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+        
+        .lang-btn.active {
+            background-color: #2d6a4f;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Page Title Section avec Background Photo - GRADYAN PI LEJÈ */
+        .page-title-section {
+            background: linear-gradient(135deg, rgba(45, 106, 79, 0.5), rgba(27, 77, 62, 0.6)), url('../assets/images/WhatsApp Image 2025-11-25 at 1.15.02 PM.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 2rem;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-title-section .container {
+            width: 100%;
+        }
+        
+        .page-title-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .page-title-section p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Contact Main Grid */
+        .contact-main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .section-title {
+            color: #2d6a4f;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #2d6a4f;
+            padding-left: 1rem;
+        }
+        
+        /* Contact Info Cards */
+        .contact-info-card {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateX(5px);
+        }
+        
+        .info-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .info-content h3 {
+            color: #2d6a4f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-content p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .info-content a {
+            color: #2d6a4f;
+            text-decoration: none;
+        }
+        
+        .info-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Departments */
+        .contact-departments {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .contact-departments h3 {
+            color: #2d6a4f;
+            margin-bottom: 1rem;
+        }
+        
+        .department-item {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .department-item:last-child {
+            border-bottom: none;
+        }
+        
+        .department-item p {
+            color: #555;
+        }
+        
+        .department-item strong {
+            color: #2d6a4f;
+        }
+        
+        /* Contact Form */
+        .contact-form-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #2d6a4f;
+        }
+        
+        textarea.form-input {
+            resize: vertical;
+        }
+        
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox input {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .checkbox label {
+            margin-bottom: 0;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button-primary {
+            background-color: #2d6a4f;
+            color: white;
+        }
+        
+        .button-primary:hover {
+            background-color: #1b4d3e;
+        }
+        
+        .success-message {
+            background-color: #e8f5e9;
+            color: #2d6a4f;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin: 4rem 0;
+        }
+        
+        .faq-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f5f5f5;
+        }
+        
+        .faq-icon {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2d6a4f;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.2rem 1.5rem;
+            color: #666;
+            line-height: 1.6;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .scroll-top-btn:hover {
+            background-color: #1b4d3e;
+            transform: scale(1.1);
+        }
+        
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                width: 70px;
+                max-height: 60px;
+            }
+            .navbar {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .navbar.active {
+                display: flex;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .header-container {
+                padding: 0.5rem 1rem;
+            }
+            .contact-main-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .page-title-section {
+                padding: 5rem 1rem;
+                min-height: 350px;
+            }
+            .page-title-section h1 {
+                font-size: 2rem;
+            }
+            .page-title-section p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .lang-btn {
+                font-size: 1rem;
+                padding: 3px 8px;
+            }
+            .scroll-top-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lang-btn {
+                font-size: 0.9rem;
+                padding: 2px 6px;
+            }
+            .logo {
+                width: 55px;
+                max-height: 50px;
+            }
+            .page-title-section {
+                padding: 4rem 1rem;
+                min-height: 280px;
+            }
+            .page-title-section h1 {
+                font-size: 1.6rem;
+            }
+            .contact-info-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .info-icon {
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- HEADER & NAVIGATION -->
+    <!-- HEADER & NAVIGATION - PA FIX -->
     <header class="header">
         <div class="header-container">
             <div class="logo-section">
                 <img src="../assets/images/LOGO1-removebg-preview.png" alt="Logo SLACH" class="logo">
             </div>
             <div class="language-switcher">
-                <button class="lang-btn" data-lang="fr" style="font-size: 1.5rem;">🇫🇷</button>
-                <button class="lang-btn" data-lang="en" style="font-size: 1.5rem;">🇺🇸</button>
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             <nav class="navbar">
@@ -34,15 +509,14 @@
                 <a href="vie-scolaire.html" class="nav-link" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
                 <a href="contact.html" class="nav-link active" data-fr="Contact" data-en="Contact">Contact</a>
             </nav>
-            <button class="cta-button" data-fr="Nous Rejoindre" data-en="Join Us">Nous Rejoindre</button>
         </div>
     </header>
 
-    <!-- PAGE TITLE -->
-    <section class="page-title-section">
+    <!-- PAGE TITLE AVEC BACKGROUND FOTO - GRADYAN PI LEJÈ -->
+    <section class="page-title-section animate-fadeInUp">
         <div class="container">
-            <h1 class="animate-fadeInUp" data-fr="Nous Contacter" data-en="Contact Us">Nous Contacter</h1>
-            <p class="animate-fadeInUp" data-fr="Vous avez des questions ? Nous sommes ici pour vous aider." data-en="Have questions? We're here to help.">Vous avez des questions ? Nous sommes ici pour vous aider.</p>
+            <h1 data-fr="Nous Contacter" data-en="Contact Us">Nous Contacter</h1>
+            <p data-fr="Vous avez des questions ? Nous sommes ici pour vous aider." data-en="Have questions? We're here to help.">Vous avez des questions ? Nous sommes ici pour vous aider.</p>
         </div>
     </section>
 
@@ -54,13 +528,10 @@
                 
                 <div class="contact-info-card">
                     <div class="info-icon">📍</div>
-                    <div class="info-content">
+                                      <div class="info-content">
                         <h3 data-fr="Adresse" data-en="Address">Adresse</h3>
-                        <p data-fr="Semi Lycée Anacaona du Cap-Haïtien<br>École mixte<br>#2, Rue du Fort Saint-Michel<br>Cap-Haïtien, Haïti" data-en="Semi Lycée Anacaona du Cap-Haïtien<br>École mixte<br>#2, Rue du Fort Saint-Michel<br>Cap-Haitien, Haiti">
-                            Semi Lycée Anacaona du Cap-Haïtien<br>
-                            École mixte<br>
-                            #2, Rue du Fort Saint-Michel<br>
-                            Cap-Haïtien, Haïti
+                        <p data-fr="#2, Rue du Fort Saint-Michel, Cap-Haïtien, Haïti" data-en="#2, Rue du Fort Saint-Michel, Cap-Haitien, Haiti">
+                            #2, Rue du Fort Saint-Michel, Cap-Haïtien, Haïti
                         </p>
                     </div>
                 </div>
@@ -82,8 +553,7 @@
                     <div class="info-content">
                         <h3 data-fr="Email" data-en="Email">Email</h3>
                         <p>
-                            <a href="mailto:info@slach.ht">info@slach.ht</a><br>
-                            <a href="mailto:admissions@slach.ht">admissions@slach.ht</a>
+                            <a href="mailto:arcelynpierre2@gmail.com">arcelynpierre2@gmail.com</a>
                         </p>
                     </div>
                 </div>
@@ -92,10 +562,10 @@
                     <div class="info-icon">⏰</div>
                     <div class="info-content">
                         <h3 data-fr="Horaires" data-en="Hours">Horaires</h3>
-                        <p data-fr="<strong>Lundi - Vendredi:</strong> 6h00 - 22h00<br><strong>Samedi:</strong> 8h00 - 17h00<br><strong>Dimanche:</strong> Fermé" data-en="<strong>Monday - Friday:</strong> 6:00 AM - 10:00 PM<br><strong>Saturday:</strong> 8:00 AM - 5:00 PM<br><strong>Sunday:</strong> Closed">
-                            <strong>Lundi - Vendredi:</strong> 6h00 - 22h00<br>
-                            <strong>Samedi:</strong> 8h00 - 17h00<br>
-                            <strong>Dimanche:</strong> Fermé
+                        <p>
+                            <strong data-fr="Lundi - Vendredi:" data-en="Monday - Friday:">Lundi - Vendredi:</strong> 6h00 - 22h00<br>
+                            <strong data-fr="Samedi:" data-en="Saturday:">Samedi:</strong> 8h00 - 17h00<br>
+                            <strong data-fr="Dimanche:" data-en="Sunday:">Dimanche:</strong> <span data-fr="Fermé" data-en="Closed">Fermé</span>
                         </p>
                     </div>
                 </div>
@@ -103,16 +573,16 @@
                 <div class="contact-departments">
                     <h3 data-fr="Départements Clés" data-en="Key Departments">Départements Clés</h3>
                     <div class="department-item">
-                        <p><strong data-fr="Admissions & Inscriptions:" data-en="Admissions & Registration:">Admissions & Inscriptions:</strong> admissions@slach.ht</p>
+                        <p><strong data-fr="Admissions & Inscriptions:" data-en="Admissions & Registration:">Admissions & Inscriptions:</strong> <a href="mailto:arcelynpierre2@gmail.com" style="color: #2d6a4f;">arcelynpierre2@gmail.com</a></p>
                     </div>
                     <div class="department-item">
-                        <p><strong data-fr="Vie Scolaire:" data-en="School Life:">Vie Scolaire:</strong> vie-scolaire@slach.ht</p>
+                        <p><strong data-fr="Vie Scolaire:" data-en="School Life:">Vie Scolaire:</strong> <a href="mailto:arcelynpierre2@gmail.com" style="color: #2d6a4f;">arcelynpierre2@gmail.com</a></p>
                     </div>
                     <div class="department-item">
-                        <p><strong data-fr="Pédagogie:" data-en="Pedagogy:">Pédagogie:</strong> pedagogie@slach.ht</p>
+                        <p><strong data-fr="Pédagogie:" data-en="Pedagogy:">Pédagogie:</strong> <a href="mailto:arcelynpierre2@gmail.com" style="color: #2d6a4f;">arcelynpierre2@gmail.com</a></p>
                     </div>
                     <div class="department-item">
-                        <p><strong data-fr="Partenariats & Donations:" data-en="Partnerships & Donations:">Partenariats & Donations:</strong> partenaires@slach.ht</p>
+                        <p><strong data-fr="Partenariats & Donations:" data-en="Partnerships & Donations:">Partenariats & Donations:</strong> <a href="mailto:arcelynpierre2@gmail.com" style="color: #2d6a4f;">arcelynpierre2@gmail.com</a></p>
                     </div>
                 </div>
             </section>
@@ -129,7 +599,8 @@
                             name="name" 
                             required 
                             placeholder="Votre nom"
-                            data-fr-placeholder="Votre nom" data-en-placeholder="Your name"
+                            data-fr-placeholder="Votre nom" 
+                            data-en-placeholder="Your name"
                             class="form-input"
                         >
                     </div>
@@ -142,7 +613,8 @@
                             name="email" 
                             required 
                             placeholder="votre@email.com"
-                            data-fr-placeholder="votre@email.com" data-en-placeholder="your@email.com"
+                            data-fr-placeholder="votre@email.com" 
+                            data-en-placeholder="your@email.com"
                             class="form-input"
                         >
                     </div>
@@ -154,7 +626,8 @@
                             id="phone" 
                             name="phone" 
                             placeholder="+509 XXXX-XXXX"
-                            data-fr-placeholder="+509 XXXX-XXXX" data-en-placeholder="+509 XXXX-XXXX"
+                            data-fr-placeholder="+509 XXXX-XXXX" 
+                            data-en-placeholder="+509 XXXX-XXXX"
                             class="form-input"
                         >
                     </div>
@@ -179,7 +652,8 @@
                             required 
                             rows="6"
                             placeholder="Veuillez détailler votre message..."
-                            data-fr-placeholder="Veuillez détailler votre message..." data-en-placeholder="Please detail your message..."
+                            data-fr-placeholder="Veuillez détailler votre message..." 
+                            data-en-placeholder="Please detail your message..."
                             class="form-input"
                         ></textarea>
                     </div>
@@ -208,7 +682,7 @@
         </div>
 
         <!-- FAQ SECTION -->
-        <section class="faq-section scroll-reveal" style="margin: 4rem 0;">
+        <section class="faq-section scroll-reveal">
             <h2 class="section-title" data-fr="Questions Fréquemment Posées" data-en="Frequently Asked Questions">Questions Fréquemment Posées</h2>
             <div class="faq-container">
                 <div class="faq-item">
@@ -217,24 +691,10 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p data-fr="Pour inscrire votre enfant, veuillez contacter notre bureau d'admissions. We welcome children from all backgrounds, regardless of their economic situation. Vous devrez remplir un formulaire d'admission et discuter des besoins spécifiques de votre enfant." data-en="To enroll your child, please contact our admissions office. We welcome children from all backgrounds, regardless of their economic situation. You will need to complete an admissions form and discuss your child's specific needs.">
+                        <p data-fr="Pour inscrire votre enfant, veuillez contacter notre bureau d'admissions. Nous accueillons les enfants de tous les horizons, indépendamment de leur situation économique. Vous devrez remplir un formulaire d'admission et discuter des besoins spécifiques de votre enfant." data-en="To enroll your child, please contact our admissions office. We welcome children from all backgrounds, regardless of their economic situation. You will need to complete an admissions form and discuss your child's specific needs.">
                             Pour inscrire votre enfant, veuillez contacter notre bureau d'admissions. 
                             Nous accueillons les enfants de tous les horizons, indépendamment de leur situation économique. 
                             Vous devrez remplir un formulaire d'admission et discuter des besoins spécifiques de votre enfant.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span data-fr="Y a-t-il des frais de scolarité ?" data-en="Are there any tuition fees?">Y a-t-il des frais de scolarité ?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer" style="display: none;">
-                        <p data-fr="SLACH offre une éducation gratuite ou à très faible coût pour tous. Nous croyons que l'éducation est un droit, pas un privilège. Les frais varient selon les capacités de la famille, et aucun enfant n'est refusé pour des raisons financières." data-en="SLACH offers free or very low-cost education for all. We believe education is a right, not a privilege. Fees vary based on family capacity, and no child is turned away for financial reasons.">
-                            SLACH offre une éducation gratuite ou à très faible coût pour tous. 
-                            Nous croyons que l'éducation est un droit, pas un privilège. 
-                            Les frais varient selon les capacités de la famille, et aucun enfant n'est refusé pour des raisons financières.
                         </p>
                     </div>
                 </div>
@@ -255,28 +715,14 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span data-fr="SLACH accepte-t-elle les enfants sans papiers ?" data-en="Does SLACH accept undocumented children?">SLACH accepte-t-elle les enfants sans papiers ?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer" style="display: none;">
-                        <p data-fr="Oui, absolument. SLACH accueille les enfants sans papiers, orphelins et réfugiés. Nous nous engageons à fournir l'éducation à ceux qui en ont le plus besoin. Le statut de papiers n'est jamais une barrière à l'admission à SLACH." data-en="Yes, absolutely. SLACH welcomes undocumented children, orphans, and refugees. We are committed to providing education to those who need it most. Documentation status is never a barrier to admission at SLACH.">
-                            Oui, absolument. SLACH accueille les enfants sans papiers, orphelins et réfugiés. 
-                            Nous nous engageons à fournir l'éducation à ceux qui en ont le plus besoin. 
-                            Le statut de papiers n'est jamais une barrière à l'admission à SLACH.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
                         <span data-fr="Comment puis-je soutenir SLACH ?" data-en="How can I support SLACH?">Comment puis-je soutenir SLACH ?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer" style="display: none;">
-                        <p data-fr="Il y a plusieurs façons de soutenir notre mission : par des donations, des bénévolats, des partenariats institutionnels, ou en partageant notre vision. Contactez notre département des partenaires pour discuter des options : partenaires@slach.ht" data-en="There are several ways to support our mission: through donations, volunteering, institutional partnerships, or by sharing our vision. Contact our partnerships department to discuss options: partenaires@slach.ht">
+                        <p data-fr="Il y a plusieurs façons de soutenir notre mission : par des donations, des bénévolats, des partenariats institutionnels, ou en partageant notre vision. Contactez notre département des partenaires pour discuter des options." data-en="There are several ways to support our mission: through donations, volunteering, institutional partnerships, or by sharing our vision. Contact our partnerships department to discuss options.">
                             Il y a plusieurs façons de soutenir notre mission : par des donations, des bénévolats, 
                             des partenariats institutionnels, ou en partageant notre vision. 
-                            Contactez notre département des partenaires pour discuter des options : partenaires@slach.ht
+                            Contactez notre département des partenaires pour discuter des options.
                         </p>
                     </div>
                 </div>
@@ -298,61 +744,235 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer" style="padding: 2rem 0; font-size: 0.9rem;">
+    <!-- FOOTER - NWA (NOIR FONCÉ) -->
+    <footer class="footer" style="padding: 2rem 0; font-size: 0.9rem; background: #000000; color: white;">
         <div class="container">
             <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
                 
-                <!-- TI MO PREZANTASYON AN -->
                 <div class="footer-section">
-                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Semi Lycée Anacaona" data-en="Semi Lycée Anacaona">Semi Lycée Anacaona</h4>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Semi-Lycée Anacaona" data-en="Semi-Lycée Anacaona">Semi-Lycée Anacaona</h4>
                     <p style="margin: 0; line-height: 1.5; opacity: 0.9;" data-fr="Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain." data-en="Inclusive and quality education since 1996, shaping the citizens of tomorrow.">Une éducation inclusive et de qualité depuis 1996, pour former les citoyens de demain.</p>
                 </div>
 
-                <!-- LIENS RAPIDES -->
                 <div class="footer-section">
-                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Liens Rapides" data-en="Quick Links">Liens Rapides</h4>
                     <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-                        <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
-                        <a href="genese.html" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
-                        <a href="charter.html" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
-                        <a href="vie-scolaire.html" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
-                        <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+                        <a href="../index.html" style="color: white; text-decoration: none;" data-fr="Accueil" data-en="Home">Accueil</a>
+                        <a href="genese.html" style="color: white; text-decoration: none;" data-fr="La Genèse" data-en="The Genesis">La Genèse</a>
+                        <a href="charter.html" style="color: white; text-decoration: none;" data-fr="Charte & Règlements" data-en="Charter & Rules">Charte & Règlements</a>
+                        <a href="vie-scolaire.html" style="color: white; text-decoration: none;" data-fr="Vie Scolaire" data-en="School Life">Vie Scolaire</a>
+                        <a href="contact.html" style="color: white; text-decoration: none;" data-fr="Contact" data-en="Contact">Contact</a>
                     </div>
                 </div>
                 
-                <!-- CONTACT INFOS -->
                 <div class="footer-section">
-                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem;" data-fr="Contact" data-en="Contact">Contact</h4>
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: #3D8B46;" data-fr="Contact" data-en="Contact">Contact</h4>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                         <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            <span data-fr="#2, Rue du Fort Saint-Michel, Cap-Haïtien" data-en="#2, Rue du Fort Saint-Michel, Cap-Haitien">#2, Rue du Fort Saint-Michel, Cap-Haïtien</span>
+                            <span data-fr="#2, Rue du Fort St Michel, Cap-Haïtien" data-en="#2, Rue du Fort St Michel, Cap-Haitien">#2, Rue du Fort St Michel, Cap-Haïtien</span>
                         </p>
                         <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            <a href="tel:7866195621" style="text-decoration: none; color: inherit;">786-619-5621</a> | 
-                            <a href="tel:+50942629604" style="text-decoration: none; color: inherit;">+509 4262-9604</a>
+                            786-619-5621
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +509 4262-9604
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            +509 4321-3720
                         </p>
                         <p style="display: flex; align-items: center; gap: 6px; margin: 0;">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3D8B46" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            <a href="mailto:info@slach.ht" style="text-decoration: none; color: inherit;">info@slach.ht</a>
+                            <a href="mailto:arcelynpierre2@gmail.com" style="color: white; text-decoration: none;">arcelynpierre2@gmail.com</a>
                         </p>
                     </div>
                 </div>
                 
             </div>
             
-            <!-- COPYRIGHT & SIGNATURE -->
             <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; text-align: center; font-size: 0.8rem; opacity: 0.8; line-height: 1.6;">
-                <p data-fr="© 2026 Semi Lycée Anacaona. Tous droits réservés." data-en="© 2026 Semi Lycée Anacaona. All rights reserved.">© 2026 Semi Lycée Anacaona. Tous droits réservés.</p>
+                <p data-fr="© 2024 Semi-Lycée Anacaona. Tous droits réservés." data-en="© 2024 Semi-Lycée Anacaona. All rights reserved.">© 2024 Semi-Lycée Anacaona. Tous droits réservés.</p>
                 <p style="margin-top: 5px; color: rgba(255,255,255,0.7);">
                     <span data-fr="Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : " data-en="Developed by: Ing. en Informatique Ivenson Petit-Homme | Tel: ">Réalisé par : Ing. en Informatique Ivenson Petit-Homme | Tél : </span>
-                    <a href="tel:+50941613156" style="color: inherit; text-decoration: underline;">+509 4161-3156</a>
+                    +509 4161-3156
                 </p>
             </div>
         </div>
     </footer>
-    <script src="../assets/js/script.js"></script>
+
+    <!-- BOUTON SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Remonte anlè">↑</button>
+
+    <script>
+        // ==================== TRADUCTION FR/EN ====================
+        let currentLang = 'fr';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Tradiksyon pou tout eleman ki gen data-fr ak data-en
+            document.querySelectorAll('[data-fr][data-en]').forEach(element => {
+                if (lang === 'fr') {
+                    element.textContent = element.getAttribute('data-fr');
+                } else if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Tradiksyon pou placeholder yo
+            document.querySelectorAll('[data-fr-placeholder][data-en-placeholder]').forEach(element => {
+                if (lang === 'fr') {
+                    element.placeholder = element.getAttribute('data-fr-placeholder');
+                } else if (lang === 'en') {
+                    element.placeholder = element.getAttribute('data-en-placeholder');
+                }
+            });
+            
+            // Tradiksyon pou select options yo
+            document.querySelectorAll('option[data-fr][data-en]').forEach(element => {
+                if (lang === 'fr') {
+                    element.textContent = element.getAttribute('data-fr');
+                } else if (lang === 'en') {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Mete ajou bouton aktif la
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Sove lang lan nan localStorage
+            localStorage.setItem('preferred_language', lang);
+        }
+        
+        // Evènman pou bouton lang yo
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                switchLanguage(lang);
+            });
+        });
+        
+        // Chaje dènye lang ki te itilize a
+        const savedLang = localStorage.getItem('preferred_language');
+        if (savedLang && (savedLang === 'fr' || savedLang === 'en')) {
+            switchLanguage(savedLang);
+        }
+        
+        // ==================== MENI MOBIL ====================
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const navbar = document.querySelector('.navbar');
+        if (toggleBtn && navbar) {
+            toggleBtn.addEventListener('click', function() {
+                navbar.classList.toggle('active');
+            });
+        }
+        
+        // Fèmen meni lè yon lyen klike
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbar.classList.contains('active')) {
+                    navbar.classList.remove('active');
+                }
+            });
+        });
+        
+        // ==================== FAQ ACCORDION ====================
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+                
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    icon.textContent = '−';
+                } else {
+                    answer.style.display = 'none';
+                    icon.textContent = '+';
+                }
+            });
+        });
+        
+        // ==================== FORM SUBMIT ====================
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        contactForm.reset();
+                        successMessage.style.display = 'block';
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        alert('Une erreur est survenue. Veuillez réessayer.');
+                    }
+                } catch (error) {
+                    alert('Une erreur est survenue. Veuillez réessayer.');
+                }
+            });
+        }
+        
+        // ==================== SCROLL REVEAL ====================
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        function checkReveal() {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+        
+        // ==================== SCROLL TO TOP ====================
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        function checkScroll() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', scrollToTop);
+        }
+    </script>
 </body>
 </html>
